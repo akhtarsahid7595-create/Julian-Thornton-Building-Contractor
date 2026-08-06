@@ -101,8 +101,8 @@ function submitForm(event) {
     const phone = document.getElementById('custPhone').value;
     const scope = document.getElementById('custScope').value;
 
-    const message = `Hello SOUTH 'SCAPED team,\nMy Name: ${name}\nPhone: ${phone}\nService Required: ${scope}\nI would like to request a free quote consultation.`;
+    const message = `Hello K&A Gardening Services team,\nMy Name: ${name}\nPhone: ${phone}\nService Required: ${scope}\nLocation: Arbroath / Dundee & Surrounding Areas\nI would like to request a free quote consultation.`;
 
     closeModal();
-    window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/447484730685?text=${encodeURIComponent(message)}`, '_blank');
 }

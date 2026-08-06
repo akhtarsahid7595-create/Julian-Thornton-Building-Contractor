@@ -84,32 +84,32 @@ p {
 
 /* Official Brand Logo Styling */
 .site-logo-img {
-  height: 52px;
+  height: 62px;
   width: auto;
   object-fit: contain;
   display: block;
   background: #FFFFFF;
-  padding: 6px 12px;
-  border-radius: 4px;
+  padding: 4px 10px;
+  border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 @media (max-width: 480px) {
   .site-logo-img {
-    height: 44px;
-    padding: 4px 8px;
+    height: 50px;
+    padding: 3px 6px;
   }
 }
 
 .footer-logo-img {
-  height: 48px;
+  height: 56px;
   width: auto;
   object-fit: contain;
   display: block;
   background: #FFFFFF;
-  padding: 6px 12px;
-  border-radius: 4px;
+  padding: 4px 10px;
+  border-radius: 6px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
 }
