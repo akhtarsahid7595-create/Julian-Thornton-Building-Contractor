@@ -101,8 +101,8 @@ function submitForm(event) {
     const phone = document.getElementById('custPhone').value;
     const scope = document.getElementById('custScope').value;
 
-    const message = `Hello K&A Gardening Services team,\nMy Name: ${name}\nPhone: ${phone}\nService Required: ${scope}\nLocation: Arbroath / Dundee & Surrounding Areas\nI would like to request a free quote consultation.`;
+    const message = `Hello Julian Thornton Building Contractor team,\nMy Name: ${name}\nPhone: ${phone}\nService Required: ${scope}\nLocation: South Lakes / North Yorkshire & Surrounding Areas\nI would like to request a project consultation.`;
 
     closeModal();
-    window.open(`https://wa.me/447484730685?text=${encodeURIComponent(message)}`, '_blank');
+    alert(`Thank you ${name}! Your consultation request for ${scope} has been logged.`);
 }
