@@ -101,8 +101,8 @@ function submitForm(event) {
     const phone = document.getElementById('custPhone').value;
     const scope = document.getElementById('custScope').value;
 
-    const message = `Hello Julian Thornton Building Contractor team,\nMy Name: ${name}\nPhone: ${phone}\nService Required: ${scope}\nLocation: South Lakes / North Yorkshire & Surrounding Areas\nI would like to request a project consultation.`;
+    const message = `Hello The Carmunnock Gardener team,\nMy Name: ${name}\nPhone: ${phone}\nService Required: ${scope}\nLocation: Carmunnock, Glasgow & Surrounding Areas\nI would like to request a free quote consultation.`;
 
     closeModal();
-    alert(`Thank you ${name}! Your consultation request for ${scope} has been logged.`);
+    window.open(`https://wa.me/447871729272?text=${encodeURIComponent(message)}`, '_blank');
 }
