@@ -101,8 +101,8 @@ function submitForm(event) {
     const phone = document.getElementById('custPhone').value;
     const scope = document.getElementById('custScope').value;
 
-    const message = `Hello The Carmunnock Gardener team,\nMy Name: ${name}\nPhone: ${phone}\nService Required: ${scope}\nLocation: Carmunnock, Glasgow & Surrounding Areas\nI would like to request a free quote consultation.`;
+    const message = `Hello WP Landscape LTD team,\nMy Name: ${name}\nPhone: ${phone}\nService Required: ${scope}\nLocation: Local Surrounding Areas\nI would like to request a free quote consultation.`;
 
     closeModal();
-    window.open(`https://wa.me/447871729272?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/447432185322?text=${encodeURIComponent(message)}`, '_blank');
 }
