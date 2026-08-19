@@ -5,17 +5,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap');
 
 :root {
-  --birch-lime: #8CB82B;
-  --birch-lime-hover: #78A022;
-  --birch-dark-header: #2B2D2F;
-  --birch-nav-bg: #555B60;
-  --birch-nav-active: #8CB82B;
-  --birch-footer-bg: #26282A;
-  --birch-copyright-bg: #1A1B1C;
-  --birch-light-bg: #F2F4F5;
+  --birch-lime: #E53935;
+  --birch-lime-hover: #C62828;
+  --birch-dark-header: #1C1D1F;
+  --birch-nav-bg: #2C2F33;
+  --birch-nav-active: #E53935;
+  --birch-footer-bg: #1C1D1F;
+  --birch-copyright-bg: #141517;
+  --birch-light-bg: #F4F6F8;
   --birch-card-bg: #FFFFFF;
 
-  --birch-text-dark: #222528;
+  --birch-text-dark: #1E2022;
   --birch-text-muted: #5A6065;
   --birch-border: #E0E4E7;
 
