@@ -101,8 +101,8 @@ function submitForm(event) {
     const phone = document.getElementById('custPhone').value;
     const scope = document.getElementById('custScope').value;
 
-    const message = `Hello WP Landscape LTD team,\nMy Name: ${name}\nPhone: ${phone}\nService Required: ${scope}\nLocation: Local Surrounding Areas\nI would like to request a free quote consultation.`;
+    const message = `Hello Fluxon Plumbing Ltd team,\nMy Name: ${name}\nPhone: ${phone}\nService Required: ${scope}\nLocation: Hampshire, Surrey & Berkshire\nI would like to request a free quote consultation.`;
 
     closeModal();
-    window.open(`https://wa.me/447432185322?text=${encodeURIComponent(message)}`, '_blank');
+    alert(`Thank you ${name}! Your request for ${scope} has been sent to the Fluxon Plumbing Ltd team.`);
 }
