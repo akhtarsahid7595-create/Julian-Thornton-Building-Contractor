@@ -188,11 +188,28 @@ p {
   align-items: center;
 }
 
+/* Official Brand Logo Styling */
+.site-logo-img, .hp-logo img {
+  height: 52px;
+  max-height: 52px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 4px;
+}
+
+@media (max-width: 480px) {
+  .site-logo-img, .hp-logo img {
+    height: 42px;
+    max-height: 42px;
+  }
+}
+
 /* Main Navigation Header (Screenshot 1) */
 .hp-main-header {
   background: #ffffff;
   border-bottom: 1px solid var(--hp-fog);
-  padding: 16px 0;
+  padding: 12px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
