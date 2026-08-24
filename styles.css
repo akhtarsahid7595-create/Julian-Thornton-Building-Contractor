@@ -1,26 +1,51 @@
 /* -------------------------------------------------------------
- * SOUTH SCAPED - MOBILE OPTIMIZED STYLESHEET
+ * HP DESIGN SYSTEM SPECIFICATION IMPLEMENTATION (DESIGN.md)
+ * Pure White Canvas, HP Electric Blue (#024ad8), Deep Ink (#1a1a1a),
+ * Soft 16px Cards (rounded.xl), 4px Sharp Buttons (rounded.md)
  * ------------------------------------------------------------- */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap');
 
 :root {
-  --birch-lime: #DC2626;
-  --birch-lime-hover: #B91C1C;
-  --birch-dark-header: #111827;
-  --birch-nav-bg: #1F2937;
-  --birch-nav-active: #DC2626;
-  --birch-footer-bg: #111827;
-  --birch-copyright-bg: #0F172A;
-  --birch-light-bg: #F8FAFC;
-  --birch-card-bg: #FFFFFF;
+  /* HP Design System Color Tokens */
+  --colors-primary: #024ad8;
+  --colors-primary-bright: #296ef9;
+  --colors-primary-deep: #0e3191;
+  --colors-primary-soft: #c9e0fc;
+  --colors-on-primary: #ffffff;
+  
+  --colors-ink: #1a1a1a;
+  --colors-ink-deep: #000000;
+  --colors-ink-soft: #292929;
+  --colors-on-ink: #ffffff;
+  
+  --colors-canvas: #ffffff;
+  --colors-paper: #ffffff;
+  --colors-cloud: #f7f7f7;
+  --colors-fog: #e8e8e8;
+  --colors-steel: #c2c2c2;
+  --colors-graphite: #636363;
+  --colors-charcoal: #3d3d3d;
+  --colors-hairline: #e8e8e8;
 
-  --birch-text-dark: #0F172A;
-  --birch-text-muted: #475569;
-  --birch-border: #E2E8F0;
+  --whatsapp-green: #25D366;
+  --whatsapp-green-hover: #1EBE5D;
 
-  --font-heading: 'Montserrat', sans-serif;
-  --font-body: 'Open Sans', sans-serif;
+  --birch-lime: var(--colors-primary);
+  --birch-lime-hover: var(--colors-primary-deep);
+  --birch-dark-header: var(--colors-ink);
+  --birch-nav-bg: #ffffff;
+  --birch-nav-active: var(--colors-primary);
+  --birch-footer-bg: var(--colors-ink);
+  --birch-copyright-bg: #111111;
+  --birch-light-bg: var(--colors-cloud);
+  --birch-card-bg: #ffffff;
+  --birch-text-dark: var(--colors-ink);
+  --birch-text-muted: var(--colors-charcoal);
+  --birch-border: var(--colors-fog);
+
+  --font-heading: 'Montserrat', 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
 }
 
 /* Reset & Viewport Protection */
@@ -37,54 +62,55 @@ html, body {
 }
 
 body {
-  background-color: var(--birch-light-bg);
-  color: var(--birch-text-dark);
+  background-color: var(--colors-canvas);
+  color: var(--colors-ink);
   font-family: var(--font-body);
-  line-height: 1.6;
+  line-height: 1.4;
   -webkit-font-smoothing: antialiased;
 }
 
 .container {
   width: 90%;
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
 .section-padding {
-  padding: 60px 0;
+  padding: 80px 0;
 }
 
 @media (max-width: 768px) {
   .section-padding {
-    padding: 40px 0;
+    padding: 48px 0;
   }
 }
 
-/* Typography */
+/* Typography Scale according to DESIGN.md */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  color: var(--birch-lime);
-  font-weight: 700;
-  line-height: 1.25;
+  color: var(--colors-ink);
+  font-weight: 500;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
   overflow-wrap: anywhere;
   min-width: 0;
 }
 
-h1 { font-size: clamp(2rem, 7vw, 3.2rem); font-weight: 800; }
-h2 { font-size: clamp(1.5rem, 5vw, 2.2rem); font-weight: 700; }
-h3 { font-size: clamp(1.1rem, 4vw, 1.3rem); font-weight: 700; }
+h1 { font-size: clamp(2.2rem, 6vw, 4rem); font-weight: 600; color: #ffffff; }
+h2 { font-size: clamp(1.6rem, 4vw, 2.5rem); font-weight: 600; margin-bottom: 16px; }
+h3 { font-size: clamp(1.1rem, 3vw, 1.5rem); font-weight: 600; }
 
 p {
-  color: var(--birch-text-muted);
-  font-size: 0.96rem;
-  line-height: 1.6;
+  color: var(--colors-charcoal);
+  font-size: 1rem;
+  line-height: 1.4;
 }
 
-.text-lime { color: var(--birch-lime) !important; }
+.text-lime { color: var(--colors-primary) !important; }
 
-/* Official Brand Logo Styling */
+/* HP Branding Logo Styling */
 .site-logo-img {
-  height: 62px;
+  height: 58px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -93,12 +119,12 @@ p {
 
 @media (max-width: 480px) {
   .site-logo-img {
-    height: 50px;
+    height: 48px;
   }
 }
 
 .footer-logo-img {
-  height: 56px;
+  height: 54px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -106,56 +132,61 @@ p {
   margin-bottom: 20px;
 }
 
-/* Buttons */
+/* HP Buttons (rounded.md - 4px, button-md uppercase) */
 .btn-lime {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 12px 26px;
-  background: var(--birch-lime);
-  color: #FFFFFF;
+  padding: 12px 24px;
+  height: 44px;
+  background: var(--colors-primary);
+  color: var(--colors-on-primary);
   font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 0.88rem;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.7px;
   text-transform: uppercase;
   border: none;
-  border-radius: 2px;
+  border-radius: 4px;
   text-decoration: none;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease;
   white-space: nowrap;
 }
 
 .btn-lime:hover {
-  background: var(--birch-lime-hover);
+  background: var(--colors-primary-deep);
 }
 
 .btn-gray {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   padding: 12px 24px;
-  background: #666666;
-  color: #FFFFFF;
+  height: 44px;
+  background: var(--colors-ink);
+  color: var(--colors-on-primary);
   font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 0.88rem;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.7px;
   text-transform: uppercase;
   border: none;
-  border-radius: 2px;
+  border-radius: 4px;
   text-decoration: none;
   cursor: pointer;
 }
 
-/* Desktop Top Phone & Email Header Bar */
+/* Utility Strip (Top Nav Slab - 36px) */
 .birch-topbar {
-  background: #1F2123;
-  color: #FFFFFF;
-  font-size: 0.82rem;
+  background: var(--colors-ink);
+  color: var(--colors-on-primary);
+  font-size: 13px;
   padding: 8px 0;
   font-family: var(--font-heading);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .birch-topbar-content {
@@ -171,8 +202,8 @@ p {
 }
 
 .birch-topbar-info span.highlight {
-  color: var(--birch-lime);
-  font-weight: 700;
+  color: var(--colors-primary-bright);
+  font-weight: 600;
 }
 
 .birch-topbar-socials {
@@ -185,16 +216,16 @@ p {
   text-decoration: none;
 }
 
-/* Hide cluttery topbar on mobile screens (< 768px) */
 @media (max-width: 768px) {
   .birch-topbar {
     display: none;
   }
 }
 
-/* Main Brand Header */
+/* Main Header (Pure White Canvas) */
 .birch-main-header {
-  background: var(--birch-dark-header);
+  background: var(--colors-canvas);
+  border-bottom: 1px solid var(--colors-fog);
   padding: 14px 0;
 }
 
@@ -207,7 +238,7 @@ p {
 /* Mobile Toggle Hamburger Button */
 .mobile-toggle-btn {
   display: none;
-  background: var(--birch-lime);
+  background: var(--colors-primary);
   border: none;
   color: #FFFFFF;
   width: 44px;
@@ -225,10 +256,10 @@ p {
   }
 }
 
-/* Secondary Navigation Bar */
+/* Secondary Navigation Bar (Sticky with Active Indicator) */
 .birch-navbar {
-  background: var(--birch-nav-bg);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  background: var(--colors-canvas);
+  border-bottom: 1px solid var(--colors-fog);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -242,24 +273,34 @@ p {
 
 .birch-nav-list li a {
   display: block;
-  padding: 15px 20px;
-  color: #FFFFFF;
+  padding: 16px 20px;
+  color: var(--colors-ink);
   font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 0.82rem;
+  font-weight: 600;
+  font-size: 14px;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
   text-decoration: none;
   white-space: nowrap;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease;
+  position: relative;
 }
 
 .birch-nav-list li a:hover,
 .birch-nav-list li a.active {
-  background: var(--birch-lime);
-  color: #FFFFFF;
+  color: var(--colors-primary);
 }
 
-/* Mobile Collapsible Navigation Menu */
+.birch-nav-list li a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--colors-primary);
+}
+
 @media (max-width: 900px) {
   .birch-navbar {
     position: relative;
@@ -268,7 +309,7 @@ p {
     display: none;
     flex-direction: column;
     width: 100%;
-    background: var(--birch-dark-header);
+    background: var(--colors-ink);
     border-top: 1px solid rgba(255,255,255,0.1);
   }
   .birch-nav-list.active {
@@ -276,20 +317,21 @@ p {
   }
   .birch-nav-list li {
     width: 100%;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
   .birch-nav-list li a {
+    color: #FFFFFF;
     padding: 14px 20px;
     width: 100%;
   }
 }
 
-/* Hero Section Slider */
+/* Hero Section with Architectural Slash Decor & Overlay Card */
 .birch-hero {
   position: relative;
-  min-height: 400px;
-  padding: 60px 0;
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('images/hero_driving.jpg');
+  min-height: 440px;
+  padding: 80px 0;
+  background: linear-gradient(rgba(26,26,26,0.65), rgba(26,26,26,0.75)), url('images/hero_driving.jpg');
   background-size: cover;
   background-position: center;
   color: #FFFFFF;
@@ -298,65 +340,74 @@ p {
 }
 
 .birch-hero-content {
-  max-width: 650px;
+  max-width: 720px;
+  background: rgba(26,26,26,0.85);
+  padding: 36px;
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  border-left: 5px solid var(--colors-primary);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
 }
 
 .birch-hero h1 {
-  color: var(--birch-lime);
-  margin-bottom: 14px;
+  color: #FFFFFF;
+  margin-bottom: 16px;
 }
 
 .birch-hero p {
-  color: #FFFFFF;
+  color: #E0E0E0;
   font-size: 1.1rem;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
-/* Content + Google Review Card Section */
+/* Content Grid Section */
 .birch-content-grid {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-  gap: 40px;
+  gap: 48px;
   align-items: start;
 }
 
 @media (max-width: 850px) {
   .birch-content-grid {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 32px;
   }
 }
 
 .sub-tag-gray {
-  font-style: italic;
-  color: #888888;
-  font-size: 0.88rem;
-  margin-bottom: 6px;
+  color: var(--colors-primary);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  margin-bottom: 8px;
 }
 
 .birch-content-box h2 {
-  margin-bottom: 14px;
+  color: var(--colors-ink);
+  margin-bottom: 16px;
 }
 
 .birch-content-box p {
   margin-bottom: 20px;
 }
 
-/* Google Reviews Card Widget */
+/* HP Soft Lift Cards (rounded.xl - 16px, Soft Lift Shadow) */
 .review-widget-card {
-  background: #FFFFFF;
-  border: 1px solid var(--birch-border);
-  border-radius: 8px;
-  padding: 24px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  background: var(--colors-paper);
+  border: 1px solid var(--colors-fog);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 2px 8px rgba(26, 26, 26, 0.08);
   text-align: center;
 }
 
 .review-header-title {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 1.05rem;
-  color: var(--birch-text-dark);
+  font-size: 1.1rem;
+  color: var(--colors-ink);
   margin-bottom: 8px;
 }
 
@@ -367,63 +418,71 @@ p {
 }
 
 .review-count-text {
-  font-size: 0.85rem;
-  color: #666666;
-  font-weight: 700;
-  margin-bottom: 14px;
+  font-size: 14px;
+  color: var(--colors-graphite);
+  font-weight: 600;
+  margin-bottom: 16px;
 }
 
 .leave-review-badge {
   display: inline-block;
-  background: #5073F8;
+  background: var(--whatsapp-green);
   color: #FFFFFF;
-  padding: 8px 18px;
-  border-radius: 20px;
+  padding: 10px 20px;
+  border-radius: 9999px;
   font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 0.85rem;
+  font-weight: 600;
+  font-size: 14px;
   text-decoration: none;
   margin-bottom: 20px;
+  transition: background 0.2s ease;
+}
+
+.leave-review-badge:hover {
+  background: var(--whatsapp-green-hover);
 }
 
 .reviewer-profile {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 10px;
+  gap: 14px;
+  margin-bottom: 12px;
   text-align: left;
 }
 
 .reviewer-avatar {
-  width: 40px;
-  height: 40px;
-  background: #CCCCCC;
-  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  background: var(--colors-cloud);
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  color: #555555;
+  color: var(--colors-primary);
+  border: 1px solid var(--colors-fog);
 }
 
 .reviewer-comment {
-  font-size: 0.88rem;
-  color: #444444;
+  font-size: 15px;
+  color: var(--colors-charcoal);
   text-align: left;
-  font-style: italic;
+  line-height: 1.5;
 }
 
-/* Recent Work Split Section */
+/* Recent Work Dark Slab Section */
 .recent-work-section {
-  background: #3A3D40;
-  color: #FFFFFF;
-  padding: 40px 0;
+  background: var(--colors-cloud);
+  color: var(--colors-ink);
+  padding: 64px 0;
+  border-top: 1px solid var(--colors-fog);
+  border-bottom: 1px solid var(--colors-fog);
 }
 
 .recent-work-grid {
   display: grid;
   grid-template-columns: 0.35fr 0.65fr;
-  gap: 24px;
+  gap: 32px;
   align-items: center;
 }
 
@@ -434,7 +493,7 @@ p {
 }
 
 .recent-work-title h2 {
-  color: var(--birch-lime);
+  color: var(--colors-ink);
   position: relative;
   display: inline-block;
   padding-bottom: 8px;
@@ -447,13 +506,13 @@ p {
   left: 0;
   width: 60px;
   height: 3px;
-  background: var(--birch-lime);
+  background: var(--colors-primary);
 }
 
 .gallery-carousel-3col {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  gap: 16px;
 }
 
 @media (max-width: 600px) {
@@ -464,26 +523,27 @@ p {
 
 .gallery-carousel-3col img {
   width: 100%;
-  height: 180px;
+  height: 190px;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(26, 26, 26, 0.08);
+  border: 1px solid var(--colors-fog);
 }
 
 /* Before & After Interactive Slider */
 .ba-section-birch {
-  background: #FFFFFF;
-  padding: 50px 0;
-  border-top: 1px solid var(--birch-border);
-  border-bottom: 1px solid var(--birch-border);
+  background: var(--colors-canvas);
+  padding: 64px 0;
 }
 
 .ba-slider-container {
   position: relative;
   width: 100%;
-  height: 380px;
-  border-radius: 6px;
+  height: 400px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(26, 26, 26, 0.08);
+  border: 1px solid var(--colors-fog);
   user-select: none;
 }
 
@@ -510,7 +570,7 @@ p {
 .ba-img-after {
   width: 50%;
   overflow: hidden;
-  border-right: 3px solid var(--birch-lime);
+  border-right: 3px solid var(--colors-primary);
   z-index: 2;
 }
 
@@ -521,19 +581,19 @@ p {
 
 .ba-text-badge {
   position: absolute;
-  top: 12px;
-  padding: 4px 12px;
-  background: #111;
+  top: 14px;
+  padding: 6px 14px;
+  background: var(--colors-ink);
   color: #FFF;
   font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 0.75rem;
-  border-radius: 2px;
+  font-weight: 600;
+  font-size: 12px;
+  border-radius: 4px;
   z-index: 5;
 }
 
-.ba-badge-before { right: 12px; background: #555; }
-.ba-badge-after { left: 12px; background: var(--birch-lime); }
+.ba-badge-before { right: 14px; background: var(--colors-charcoal); }
+.ba-badge-after { left: 14px; background: var(--colors-primary); }
 
 .ba-drag-handle {
   position: absolute;
@@ -557,9 +617,9 @@ p {
 }
 
 .ba-drag-circle {
-  width: 38px;
-  height: 38px;
-  background: var(--birch-lime);
+  width: 40px;
+  height: 40px;
+  background: var(--colors-primary);
   color: #FFFFFF;
   border-radius: 50%;
   display: flex;
@@ -567,21 +627,22 @@ p {
   justify-content: center;
   border: 2px solid #FFFFFF;
   z-index: 11;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
-/* Footer Section */
+/* HP Dark Slab Footer (footer-dark) */
 footer.birch-footer {
-  background: var(--birch-footer-bg);
-  color: #FFFFFF;
-  padding-top: 40px;
-  padding-bottom: 24px;
+  background: var(--colors-ink);
+  color: var(--colors-on-ink);
+  padding-top: 64px;
+  padding-bottom: 32px;
 }
 
 .birch-footer-grid {
   display: grid;
   grid-template-columns: 1.2fr 1fr 1fr 1.2fr;
-  gap: 30px;
-  margin-bottom: 30px;
+  gap: 36px;
+  margin-bottom: 40px;
 }
 
 @media (max-width: 800px) {
@@ -597,10 +658,12 @@ footer.birch-footer {
 }
 
 .birch-footer-col h4 {
-  color: var(--birch-lime);
-  font-size: 0.9rem;
+  color: var(--colors-on-ink);
+  font-size: 14px;
+  font-weight: 600;
   text-transform: uppercase;
-  margin-bottom: 14px;
+  letter-spacing: 0.7px;
+  margin-bottom: 16px;
 }
 
 .birch-footer-col ul {
@@ -608,21 +671,27 @@ footer.birch-footer {
 }
 
 .birch-footer-col ul li {
-  margin-bottom: 8px;
-  font-size: 0.88rem;
+  margin-bottom: 10px;
+  font-size: 14px;
 }
 
 .birch-footer-col ul a {
-  color: #CCCCCC;
+  color: var(--colors-steel);
   text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.birch-footer-col ul a:hover {
+  color: var(--colors-primary-bright);
 }
 
 .birch-copyright-bar {
   background: var(--birch-copyright-bg);
-  padding: 14px 0;
+  padding: 16px 0;
   text-align: center;
-  font-size: 0.8rem;
-  color: #888888;
+  font-size: 13px;
+  color: var(--colors-steel);
+  border-top: 1px solid rgba(255,255,255,0.08);
 }
 
 /* Floating Actions Bar (Desktop & Mobile) */
@@ -632,16 +701,17 @@ footer.birch-footer {
   top: 40%;
   transform: translateY(-50%) rotate(-90deg);
   transform-origin: right bottom;
-  background: var(--birch-lime);
+  background: var(--whatsapp-green);
   color: #FFFFFF;
   padding: 12px 24px;
   font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 0.85rem;
+  font-weight: 600;
+  font-size: 13px;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
   text-decoration: none;
   z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   border-radius: 4px 4px 0 0;
 }
 
@@ -652,7 +722,7 @@ footer.birch-footer {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: var(--birch-dark-header);
+  background: var(--colors-ink);
   border-top: 1px solid rgba(255,255,255,0.1);
   padding: 8px 12px;
   z-index: 1500;
@@ -667,7 +737,7 @@ footer.birch-footer {
 .mobile-bottom-bar-flex a, .mobile-bottom-bar-flex button {
   flex: 1;
   text-align: center;
-  font-size: 0.82rem;
+  font-size: 13px;
   padding: 10px 8px;
 }
 
@@ -683,11 +753,11 @@ footer.birch-footer {
   }
 }
 
-/* Booking Modal */
+/* Booking Floating Modal (HP Soft Lift Drawer/Modal) */
 .birch-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(26, 26, 26, 0.8);
   z-index: 2000;
   display: flex;
   align-items: center;
@@ -704,23 +774,25 @@ footer.birch-footer {
 }
 
 .birch-modal-box {
-  background: #FFFFFF;
-  border-radius: 6px;
+  background: var(--colors-paper);
+  border-radius: 16px;
   width: 100%;
   max-width: 480px;
-  padding: 28px;
+  padding: 32px;
   position: relative;
   max-height: 90vh;
   overflow-y: auto;
+  box-shadow: 0 8px 24px rgba(26, 26, 26, 0.12);
+  border: 1px solid var(--colors-fog);
 }
 
 .birch-modal-close {
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: 16px;
+  right: 16px;
   background: none;
   border: none;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   cursor: pointer;
-  color: #888888;
+  color: var(--colors-graphite);
 }
