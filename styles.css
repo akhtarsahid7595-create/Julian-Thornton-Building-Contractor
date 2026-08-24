@@ -188,20 +188,20 @@ p {
   align-items: center;
 }
 
-/* Official Brand Logo Styling */
+/* Official Brand Logo Styling (Horizontal Airbnb Style Wordmark) */
 .site-logo-img, .hp-logo img {
-  height: 52px;
-  max-height: 52px;
+  height: 48px;
+  max-height: 48px;
   width: auto;
   object-fit: contain;
   display: block;
-  border-radius: 4px;
+  mix-blend-mode: multiply;
 }
 
 @media (max-width: 480px) {
   .site-logo-img, .hp-logo img {
-    height: 42px;
-    max-height: 42px;
+    height: 38px;
+    max-height: 38px;
   }
 }
 
