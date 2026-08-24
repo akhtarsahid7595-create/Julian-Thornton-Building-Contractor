@@ -101,8 +101,8 @@ function submitForm(event) {
     const phone = document.getElementById('custPhone').value;
     const scope = document.getElementById('custScope').value;
 
-    const message = `Hello Fluxon Plumbing Ltd team,\nMy Name: ${name}\nPhone: ${phone}\nService Required: ${scope}\nLocation: Hampshire, Surrey & Berkshire\nI would like to request a free quote consultation.`;
+    const message = `Hello Glasgow Drive Connect team,\nMy Name: ${name}\nPostcode / Contact: ${phone}\nLesson Needed: ${scope}\nI would like to get matched with an instructor in Glasgow!`;
 
     closeModal();
-    alert(`Thank you ${name}! Your request for ${scope} has been sent to the Fluxon Plumbing Ltd team.`);
+    window.open(`https://wa.me/447440679472?text=${encodeURIComponent(message)}`, '_blank');
 }

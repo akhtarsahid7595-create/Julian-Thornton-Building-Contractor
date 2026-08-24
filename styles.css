@@ -5,19 +5,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap');
 
 :root {
-  --birch-lime: #E53935;
-  --birch-lime-hover: #C62828;
-  --birch-dark-header: #1C1D1F;
-  --birch-nav-bg: #2C2F33;
-  --birch-nav-active: #E53935;
-  --birch-footer-bg: #1C1D1F;
-  --birch-copyright-bg: #141517;
-  --birch-light-bg: #F4F6F8;
+  --birch-lime: #DC2626;
+  --birch-lime-hover: #B91C1C;
+  --birch-dark-header: #111827;
+  --birch-nav-bg: #1F2937;
+  --birch-nav-active: #DC2626;
+  --birch-footer-bg: #111827;
+  --birch-copyright-bg: #0F172A;
+  --birch-light-bg: #F8FAFC;
   --birch-card-bg: #FFFFFF;
 
-  --birch-text-dark: #1E2022;
-  --birch-text-muted: #5A6065;
-  --birch-border: #E0E4E7;
+  --birch-text-dark: #0F172A;
+  --birch-text-muted: #475569;
+  --birch-border: #E2E8F0;
 
   --font-heading: 'Montserrat', sans-serif;
   --font-body: 'Open Sans', sans-serif;
@@ -289,7 +289,7 @@ p {
   position: relative;
   min-height: 400px;
   padding: 60px 0;
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('images/hero_plumbing.jpg');
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('images/hero_driving.jpg');
   background-size: cover;
   background-position: center;
   color: #FFFFFF;
