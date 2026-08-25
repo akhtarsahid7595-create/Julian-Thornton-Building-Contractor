@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------
- * SOUTH SCAPED - BIRCH LANDSCAPES MOBILE OPTIMIZED SCRIPT
+ * GLASGOW DRIVE CONNECT - LEAD TRACKING & SCRIPT ENGINE
  * ------------------------------------------------------------- */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Before & After Drag Slider
     initBeforeAfterSlider();
+
+    // 3. Attach WhatsApp Click Tracking to All WhatsApp Links
+    initWhatsAppClickTracking();
 });
 
 /* Mobile Menu Toggle */
@@ -95,11 +98,50 @@ function closeModal() {
     if (modal) modal.classList.remove('active');
 }
 
+/* WhatsApp Lead Tracking & Instant Notification Helper */
+function notifyLead(leadData) {
+    const payload = {
+        client: 'Glasgow Drive Connect',
+        event: 'PUPIL_WHATSAPP_LEAD',
+        name: leadData.name || 'Website Visitor',
+        phone: leadData.phone || 'N/A',
+        service: leadData.service || 'Driving Lesson Enquiry',
+        timestamp: new Date().toLocaleString()
+    };
+
+    // 1. Log to local Storage & Console
+    const leads = JSON.parse(localStorage.getItem('gdc_leads') || '[]');
+    leads.push(payload);
+    localStorage.setItem('gdc_leads', JSON.stringify(leads));
+
+    // 2. Background Beacon Notification (Sends instant alert to webhook/agency endpoint)
+    if (navigator.sendBeacon) {
+        const blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
+        navigator.sendBeacon('https://httpbin.org/post', blob);
+    }
+}
+
+function initWhatsAppClickTracking() {
+    document.querySelectorAll('a[href*="wa.me"]').forEach(button => {
+        button.addEventListener('click', () => {
+            notifyLead({
+                service: button.innerText.trim() || 'WhatsApp CTA Button Click'
+            });
+        });
+    });
+}
+
 function submitForm(event) {
     event.preventDefault();
     const name = document.getElementById('custName').value;
     const phone = document.getElementById('custPhone').value;
     const scope = document.getElementById('custScope').value;
+
+    notifyLead({
+        name: name,
+        phone: phone,
+        service: scope
+    });
 
     const message = `Hello Glasgow Drive Connect team,\nMy Name: ${name}\nPostcode / Contact: ${phone}\nLesson Needed: ${scope}\nI would like to get matched with an instructor in Glasgow!`;
 
