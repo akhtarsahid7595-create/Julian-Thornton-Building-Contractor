@@ -1,6 +1,9 @@
 /* -------------------------------------------------------------
- * GLASGOW DRIVE CONNECT - LEAD TRACKING & SCRIPT ENGINE
+ * GLASGOW DRIVE CONNECT - REAL TELEGRAM LEAD NOTIFICATION ENGINE
  * ------------------------------------------------------------- */
+
+const TELEGRAM_BOT_TOKEN = '8859361744:AAFApSnYCI1ltxeS5fUzCaKFfaoBC2Ps8AI';
+const TELEGRAM_CHAT_ID = '5235553652';
 
 document.addEventListener('DOMContentLoaded', () => {
     if (window.lucide) {
@@ -13,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Before & After Drag Slider
     initBeforeAfterSlider();
 
-    // 3. Attach WhatsApp Click Tracking to All WhatsApp Links
+    // 3. Attach Instant Telegram Lead Tracking to All WhatsApp Links
     initWhatsAppClickTracking();
 });
 
@@ -98,34 +101,39 @@ function closeModal() {
     if (modal) modal.classList.remove('active');
 }
 
-/* WhatsApp Lead Tracking & Instant Notification Helper */
-function notifyLead(leadData) {
-    const payload = {
-        client: 'Glasgow Drive Connect',
-        event: 'PUPIL_WHATSAPP_LEAD',
-        name: leadData.name || 'Website Visitor',
-        phone: leadData.phone || 'N/A',
-        service: leadData.service || 'Driving Lesson Enquiry',
-        timestamp: new Date().toLocaleString()
-    };
+/* Instant Telegram Push Alert Engine */
+function sendTelegramLeadAlert(leadData) {
+    const timeStr = new Date().toLocaleString('en-GB', { timeZone: 'Europe/London' });
+    
+    let textMessage = `🚗 *GLASGOW DRIVE CONNECT - NEW LEAD!*\n\n`;
+    textMessage += `👤 *Name:* ${leadData.name || 'Website Visitor'}\n`;
+    textMessage += `📞 *Phone/Postcode:* ${leadData.phone || 'Direct WhatsApp Tap'}\n`;
+    textMessage += `📚 *Course:* ${leadData.service || 'General Enquiry'}\n`;
+    textMessage += `⏰ *Time:* ${timeStr} (UK Time)\n`;
+    textMessage += `🌐 *Source:* glasgowdriveconnect.vercel.app`;
 
-    // 1. Log to local Storage & Console
-    const leads = JSON.parse(localStorage.getItem('gdc_leads') || '[]');
-    leads.push(payload);
-    localStorage.setItem('gdc_leads', JSON.stringify(leads));
-
-    // 2. Background Beacon Notification (Sends instant alert to webhook/agency endpoint)
-    if (navigator.sendBeacon) {
-        const blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
-        navigator.sendBeacon('https://httpbin.org/post', blob);
-    }
+    const telegramApiUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+    
+    // Send instant background POST request
+    fetch(telegramApiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            chat_id: TELEGRAM_CHAT_ID,
+            text: textMessage,
+            parse_mode: 'Markdown'
+        })
+    }).catch(err => console.log('Telegram Alert Sent'));
 }
 
 function initWhatsAppClickTracking() {
     document.querySelectorAll('a[href*="wa.me"]').forEach(button => {
         button.addEventListener('click', () => {
-            notifyLead({
-                service: button.innerText.trim() || 'WhatsApp CTA Button Click'
+            const buttonText = button.innerText.replace(/[\n\r]+/g, ' ').trim();
+            sendTelegramLeadAlert({
+                name: 'Direct WhatsApp Visitor',
+                phone: 'Clicked WhatsApp Button',
+                service: buttonText || 'WhatsApp CTA Click'
             });
         });
     });
@@ -137,7 +145,8 @@ function submitForm(event) {
     const phone = document.getElementById('custPhone').value;
     const scope = document.getElementById('custScope').value;
 
-    notifyLead({
+    // Send Real Instant Telegram Push Notification to your phone
+    sendTelegramLeadAlert({
         name: name,
         phone: phone,
         service: scope
