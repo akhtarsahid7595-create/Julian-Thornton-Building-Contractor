@@ -141,18 +141,23 @@ function initWhatsAppClickTracking() {
 
 function submitForm(event) {
     event.preventDefault();
-    const name = document.getElementById('custName').value;
-    const phone = document.getElementById('custPhone').value;
-    const scope = document.getElementById('custScope').value;
+    const name = document.getElementById('custName') ? document.getElementById('custName').value : '';
+    const postcode = document.getElementById('custPostcode') ? document.getElementById('custPostcode').value : '';
+    const phone = document.getElementById('custPhone') ? document.getElementById('custPhone').value : '';
+    const transmission = document.getElementById('custTransmission') ? document.getElementById('custTransmission').value : 'Manual';
+    const testCentre = document.getElementById('custTestCentre') ? document.getElementById('custTestCentre').value : 'Anniesland Test Centre';
+    const availability = document.getElementById('custAvailability') ? document.getElementById('custAvailability').value : 'ASAP';
+
+    const fullServiceDesc = `${transmission} Lessons | ${testCentre} | ${availability}`;
 
     // Send Real Instant Telegram Push Notification to your phone
     sendTelegramLeadAlert({
-        name: name,
+        name: `${name} (Postcode: ${postcode})`,
         phone: phone,
-        service: scope
+        service: fullServiceDesc
     });
 
-    const message = `Hello Glasgow Drive Connect team,\nMy Name: ${name}\nPostcode / Contact: ${phone}\nLesson Needed: ${scope}\nI would like to get matched with an instructor in Glasgow!`;
+    const message = `Hi Glasgow Drive Connect, I need a ${transmission} instructor in ${postcode}.\n\nName: ${name}\nPhone: ${phone}\nTest Centre: ${testCentre}\nAvailability: ${availability}`;
 
     closeModal();
     window.open(`https://wa.me/447440679472?text=${encodeURIComponent(message)}`, '_blank');
