@@ -86,8 +86,10 @@ p {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 12px 28px;
-  height: 44px;
+  padding: 12px 24px;
+  min-height: 44px;
+  height: auto;
+  line-height: 1.4;
   background: var(--hp-ink);
   color: #ffffff;
   font-family: var(--font-body);
@@ -110,7 +112,9 @@ p {
   justify-content: center;
   gap: 8px;
   padding: 12px 28px;
-  height: 44px;
+  min-height: 44px;
+  height: auto;
+  line-height: 1.4;
   background: #ffffff;
   color: var(--hp-ink);
   font-family: var(--font-body);
@@ -133,7 +137,9 @@ p {
   justify-content: center;
   gap: 8px;
   padding: 12px 28px;
-  height: 44px;
+  min-height: 44px;
+  height: auto;
+  line-height: 1.4;
   background: var(--hp-blue);
   color: #ffffff;
   font-family: var(--font-body);
@@ -156,7 +162,9 @@ p {
   justify-content: center;
   gap: 8px;
   padding: 12px 28px;
-  height: 44px;
+  min-height: 44px;
+  height: auto;
+  line-height: 1.4;
   background: var(--whatsapp-green);
   color: #ffffff;
   font-family: var(--font-body);
@@ -787,5 +795,11 @@ p {
     border-right: none;
     border-bottom: 1px solid var(--hp-fog);
     padding: 12px 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .desktop-header-wa {
+    display: none !important;
   }
 }
