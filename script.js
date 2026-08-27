@@ -94,7 +94,7 @@ function injectBookingModalIfNeeded() {
                     <button type="submit" class="btn-whatsapp allow-direct-wa" style="width:100%; font-size:14px; padding:14px 20px;">
                         <i data-lucide="message-circle"></i> GET MATCHED FREE ➔
                     </button>
-                    <p style="text-align:center; font-size:0.75rem; color:var(--hp-steel); margin-top:8px; margin-bottom:0;">🔒 100% Free Matching. No obligation.</p>
+                    <p style="text-align:center; font-size:0.75rem; color:var(--hp-graphite); margin-top:8px; margin-bottom:0;">🔒 100% Free Matching. No obligation.</p>
                 </form>
             </div>
 
