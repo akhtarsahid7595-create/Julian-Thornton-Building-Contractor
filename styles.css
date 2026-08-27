@@ -1196,3 +1196,38 @@ p {
   flex-direction: column;
   align-items: flex-start;
 }
+
+/* Typical Local Rates Callout Box */
+.typical-rates-box {
+  background: rgba(2, 74, 216, 0.05);
+  border: 1px dashed var(--hp-blue);
+  border-radius: 12px;
+  padding: 16px 24px;
+  margin: 16px auto;
+  max-width: 540px;
+  text-align: center;
+}
+
+.typical-rates-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--hp-blue);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.typical-rates-price {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--hp-ink);
+  margin-bottom: 6px;
+}
+
+.typical-rates-desc {
+  font-size: 0.85rem;
+  color: var(--hp-graphite);
+  margin: 0;
+  line-height: 1.4;
+}
