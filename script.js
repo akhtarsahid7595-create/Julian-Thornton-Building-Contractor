@@ -77,33 +77,39 @@ function closeModal() {
     if (modal) modal.classList.remove('active');
 }
 
-/* Instant Telegram Push Alert Engine */
+/* Bulletproof Instant Telegram Push Alert Engine */
 function sendTelegramLeadAlert(leadData) {
     const timeStr = new Date().toLocaleString('en-GB', { timeZone: 'Europe/London' });
+    const currentDomain = window.location.hostname || 'www.glasgowdriveconnect.co.uk';
     
     let textMessage = `🚗 *GLASGOW DRIVE CONNECT - NEW LEAD!*\n\n`;
     textMessage += `👤 *Name:* ${leadData.name || 'Website Visitor'}\n`;
     textMessage += `📞 *Phone/Postcode:* ${leadData.phone || 'Direct WhatsApp Tap'}\n`;
     textMessage += `📚 *Course:* ${leadData.service || 'General Enquiry'}\n`;
     textMessage += `⏰ *Time:* ${timeStr} (UK Time)\n`;
-    textMessage += `🌐 *Source:* glasgowdriveconnect.vercel.app`;
+    textMessage += `🌐 *Source:* ${currentDomain}`;
 
     const telegramApiUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
     
-    // Send instant background POST request
-    fetch(telegramApiUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            chat_id: TELEGRAM_CHAT_ID,
-            text: textMessage,
-            parse_mode: 'Markdown'
-        })
-    }).catch(err => console.log('Telegram Alert Sent'));
+    // Bulletproof fetch with keepalive: true (Guarantees delivery on mobile tab switch/navigation)
+    try {
+        fetch(telegramApiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                chat_id: TELEGRAM_CHAT_ID,
+                text: textMessage,
+                parse_mode: 'Markdown'
+            }),
+            keepalive: true
+        }).catch(err => console.log('Telegram Alert Sent'));
+    } catch(e) {
+        console.log('Telegram alert error:', e);
+    }
 }
 
 function initWhatsAppClickTracking() {
-    document.querySelectorAll('a[href*="wa.me"]').forEach(button => {
+    document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]').forEach(button => {
         button.addEventListener('click', () => {
             const buttonText = button.innerText.replace(/[\n\r]+/g, ' ').trim();
             sendTelegramLeadAlert({
