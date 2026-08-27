@@ -13,11 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Mobile Menu Toggle Handler
     initMobileMenu();
 
-    // 2. Before & After Drag Slider
-    initBeforeAfterSlider();
-
-    // 3. Attach Instant Telegram Lead Tracking to All WhatsApp Links
+    // 2. Attach Instant Telegram Lead Tracking to All WhatsApp Links
     initWhatsAppClickTracking();
+
+    // 3. FAQ Accordion Handler
+    initFaqAccordion();
 });
 
 /* Mobile Menu Toggle */
@@ -39,60 +39,36 @@ function initMobileMenu() {
     });
 }
 
-/* Before & After Comparison Slider */
-function initBeforeAfterSlider() {
-    const slider = document.getElementById('baSlider');
-    const afterImg = document.getElementById('afterImage');
-    const handle = document.getElementById('baHandle');
+/* FAQ Accordion Toggle */
+function initFaqAccordion() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
 
-    if (!slider || !afterImg || !handle) return;
+    faqQuestions.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const faqItem = btn.parentElement;
+            
+            // Close other active FAQs
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove('active');
+                }
+            });
 
-    let isDragging = false;
-
-    function updateSlider(xPos) {
-        const rect = slider.getBoundingClientRect();
-        let offsetX = xPos - rect.left;
-
-        if (offsetX < 0) offsetX = 0;
-        if (offsetX > rect.width) offsetX = rect.width;
-
-        const percent = (offsetX / rect.width) * 100;
-        afterImg.style.width = `${percent}%`;
-        handle.style.left = `${percent}%`;
-    }
-
-    slider.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        updateSlider(e.clientX);
-    });
-
-    window.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        updateSlider(e.clientX);
-    });
-
-    window.addEventListener('mouseup', () => {
-        isDragging = false;
-    });
-
-    slider.addEventListener('touchstart', (e) => {
-        isDragging = true;
-        updateSlider(e.touches[0].clientX);
-    });
-
-    window.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
-        updateSlider(e.touches[0].clientX);
-    });
-
-    window.addEventListener('touchend', () => {
-        isDragging = false;
+            // Toggle current FAQ
+            faqItem.classList.toggle('active');
+        });
     });
 }
 
 /* Modal Open & Close */
 function openModal() {
     const modal = document.getElementById('bookingModal');
+    const formView = document.getElementById('modalFormView');
+    const thankView = document.getElementById('modalThankYouView');
+    
+    if (formView) formView.style.display = 'block';
+    if (thankView) thankView.style.display = 'none';
+
     if (modal) modal.classList.add('active');
 }
 
@@ -157,8 +133,16 @@ function submitForm(event) {
         service: fullServiceDesc
     });
 
-    const message = `Hi Glasgow Drive Connect, I need a ${transmission} instructor in ${postcode}.\n\nName: ${name}\nPhone: ${phone}\nTest Centre: ${testCentre}\nAvailability: ${availability}`;
+    // Show Thank You confirmation view inside modal
+    const formView = document.getElementById('modalFormView');
+    const thankView = document.getElementById('modalThankYouView');
+    if (formView) formView.style.display = 'none';
+    if (thankView) thankView.style.display = 'block';
 
-    closeModal();
-    window.open(`https://wa.me/447440679472?text=${encodeURIComponent(message)}`, '_blank');
+    const message = `Hi Glasgow Drive Connect, I'd like help finding a driving instructor.\n\nMy Postcode: ${postcode}\nTransmission: ${transmission}\nAvailability: ${availability}\nName: ${name}\nPhone: ${phone}\nTest Centre: ${testCentre}`;
+
+    // Delay WhatsApp redirect slightly so thank-you message is seen
+    setTimeout(() => {
+        window.open(`https://wa.me/447440679472?text=${encodeURIComponent(message)}`, '_blank');
+    }, 1500);
 }

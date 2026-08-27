@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glasgow Drive Connect | Matched With A DVSA Instructor In 24 Hours</title>
-    <meta name="description" content="Glasgow Drive Connect matches you with DVSA approved instructors in 24h. Manual & automatic lessons across all Glasgow postcodes.">
+    <title>Driving Lessons Glasgow | Glasgow Drive Connect</title>
+    <meta name="description" content="Find a suitable DVSA-approved driving instructor in Glasgow. Manual and automatic lessons, intensive courses and local instructor matching. Get matched free.">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="logo.png">
@@ -17,41 +17,43 @@
 </head>
 <body>
 
-    <!-- HP Utility Topbar -->
+    <!-- Utility Topbar -->
     <div class="hp-topbar">
         <div class="container hp-topbar-flex">
             <div>
-                <span><i data-lucide="map-pin" style="width:14px; vertical-align:middle; color:var(--hp-blue);"></i> <strong>Coverage:</strong> Glasgow & Surrounding Postcodes G1-G81</span>
+                <span><i data-lucide="map-pin" style="width:14px; vertical-align:middle; color:var(--hp-blue);"></i> <strong>Coverage:</strong> Glasgow & Surrounding Areas</span>
                 <span style="margin:0 12px; color:var(--hp-fog);">|</span>
-                <span><i data-lucide="message-circle" style="width:14px; vertical-align:middle; color:var(--whatsapp-green);"></i> <strong>WhatsApp Only:</strong> <span style="color:var(--hp-ink); font-weight:600;">07440 679472</span></span>
+                <span><i data-lucide="message-circle" style="width:14px; vertical-align:middle; color:var(--whatsapp-green);"></i> <strong>Free Instructor Matching Service</strong></span>
             </div>
             <div>
-                <span style="font-weight:600; color:var(--hp-blue);"><i data-lucide="shield-check" style="width:14px; vertical-align:middle;"></i> DVSA Approved Instructors</span>
+                <span style="font-weight:600; color:var(--hp-blue);"><i data-lucide="shield-check" style="width:14px; vertical-align:middle;"></i> DVSA-Approved Local Instructors</span>
             </div>
         </div>
     </div>
 
-    <!-- HP Main Header Navigation -->
+    <!-- Main Navigation Header -->
     <header class="hp-main-header">
         <div class="container hp-header-flex">
-            <a href="#" class="hp-logo">
+            <a href="index.html" class="hp-logo">
                 <img src="logo.png" alt="Glasgow Drive Connect Logo" class="site-logo-img">
             </a>
 
             <!-- Navigation Links -->
             <ul class="hp-nav-links" id="navMenuList">
                 <li><a href="#" class="active">HOME</a></li>
-                <li><a href="#explore">LESSONS & COURSES</a></li>
-                <li><a href="#musthaves">PACKAGES</a></li>
-                <li><a href="#about">ABOUT US</a></li>
-                <li><a href="#trusted">WHY US</a></li>
-                <li><a href="#contact" onclick="openModal(); return false;">FIND INSTRUCTOR</a></li>
+                <li><a href="#howitworks">HOW IT WORKS</a></li>
+                <li><a href="#services">SERVICES</a></li>
+                <li><a href="automatic-driving-lessons-glasgow.html">AUTOMATIC</a></li>
+                <li><a href="female-driving-instructor-glasgow.html">FEMALE INSTRUCTORS</a></li>
+                <li><a href="intensive-driving-courses-glasgow.html">INTENSIVE</a></li>
+                <li><a href="#coverage">COVERAGE</a></li>
+                <li><a href="#faq">FAQ</a></li>
             </ul>
 
             <!-- Header Action Button -->
             <div style="display:flex; align-items:center; gap:12px;">
-                <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I%20need%20an%20instructor%20in%20[My%20Postcode]" target="_blank" class="btn-whatsapp desktop-header-wa" style="padding:8px 16px; font-size:13px;">
-                    <i data-lucide="message-circle" style="width:16px;"></i> WHATSAPP US
+                <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I'd%20like%20help%20finding%20a%20driving%20instructor.%20My%20postcode%20is%20____%20and%20I%20need%20____%20lessons." target="_blank" class="btn-whatsapp desktop-header-wa" style="font-size:13px; padding:10px 18px;">
+                    <i data-lucide="message-circle" style="width:16px;"></i> WHATSAPP — GET MATCHED FREE
                 </a>
                 <button class="mobile-toggle-btn" id="mobileToggleBtn" aria-label="Toggle Menu">
                     <i data-lucide="menu"></i>
@@ -60,166 +62,512 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HOMEPAGE HERO SECTION -->
     <section class="hp-hero-section">
         <div class="container">
             <div class="hp-hero-grid">
                 <!-- Left Content Canvas -->
                 <div class="hp-hero-left">
-                    <h1>Matched With A DVSA Instructor In 24 Hours</h1>
-                    <p><strong>Manual & Automatic Lessons Across Glasgow. We cover Anniesland, Baillieston, Shieldhall & Paisley Test Routes.</strong></p>
+                    <span class="usp-badge"><i data-lucide="check-circle-2"></i> Free Instructor Matching Service</span>
+                    <h1 style="margin-top:12px; margin-bottom:16px;">FIND YOUR DRIVING INSTRUCTOR IN GLASGOW</h1>
+                    <p style="font-size:1.15rem; color:var(--hp-charcoal); margin-bottom:20px;">We connect learners with DVSA-approved local driving instructors across Glasgow and surrounding postcodes.</p>
+                    
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px;">
+                        <span class="tag-pill"><i data-lucide="car"></i> Manual</span>
+                        <span class="tag-pill"><i data-lucide="zap"></i> Automatic</span>
+                        <span class="tag-pill"><i data-lucide="flag"></i> Intensive</span>
+                        <span class="tag-pill"><i data-lucide="user-check"></i> Female Instructor Requests</span>
+                    </div>
+
                     <div class="hp-hero-btns">
-                        <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I%20need%20an%20instructor%20in%20[My%20Postcode]" target="_blank" class="btn-hp-black" style="font-size:13px; text-align:center;">
-                            <i data-lucide="message-circle"></i> Message Us Tonight → Matched By Tomorrow → First Lesson This Week!
+                        <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I'd%20like%20help%20finding%20a%20driving%20instructor.%20My%20postcode%20is%20____%20and%20I%20need%20____%20lessons." target="_blank" class="btn-whatsapp" style="font-size:14px; padding:14px 22px;">
+                            <i data-lucide="message-circle"></i> WHATSAPP US — GET MATCHED FREE
                         </a>
-                        <a href="#explore" class="btn-hp-outline">
-                            EXPLORE COURSES
+                        <a href="#coverage" class="btn-hp-outline" style="font-size:14px; padding:14px 22px;">
+                            CHECK YOUR POSTCODE
                         </a>
                     </div>
+                    <p style="font-size:13px; color:var(--hp-steel); margin-top:16px;">
+                        <i data-lucide="clock" style="width:14px; vertical-align:middle;"></i> We aim to connect you with an available instructor within 24 hours. Glasgow & surrounding areas.
+                    </p>
                 </div>
 
-                <!-- Right Diagonal Blue Slash Backdrop -->
+                <!-- Right Visual -->
                 <div class="hp-hero-right">
                     <div class="hp-hero-blue-slash"></div>
-                    <img src="images/hero_driving.jpg" alt="Glasgow Drive Connect Tuition Car" class="hp-hero-img">
+                    <img src="images/hero_driving.jpg" alt="Driving Instructor Matching Glasgow" class="hp-hero-img">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- EXPLORE CATEGORIES STRIP -->
-    <section id="explore" class="hp-explore-section">
+    <!-- FREE INSTRUCTOR MATCHING PROMINENT USP BADGE CARD -->
+    <section style="background:var(--hp-cloud); padding:36px 0; border-bottom:1px solid var(--hp-fog);">
         <div class="container">
-            <h2>Explore Glasgow Driving Tuition</h2>
-            
-            <div class="hp-categories-grid">
-                <!-- Cat 1 -->
-                <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I%20need%20a%20Manual%20Driving%20Instructor%20in%20[My%20Postcode]" target="_blank" class="hp-category-item">
-                    <i data-lucide="car" class="hp-category-icon"></i>
-                    <span>Manual Lessons</span>
-                </a>
-
-                <!-- Cat 2 -->
-                <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I%20need%20an%20Automatic%20Driving%20Instructor%20in%20[My%20Postcode]" target="_blank" class="hp-category-item">
-                    <i data-lucide="zap" class="hp-category-icon"></i>
-                    <span>Automatic Lessons</span>
-                </a>
-
-                <!-- Cat 3 -->
-                <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I%20am%20enquiring%20about%20Fast-Track%20Intensive%20Courses" target="_blank" class="hp-category-item">
-                    <i data-lucide="flag" class="hp-category-icon"></i>
-                    <span>Intensive Fast-Track</span>
-                </a>
-
-                <!-- Cat 4 -->
-                <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I%20want%20to%20book%20a%20Mock%20Driving%20Test" target="_blank" class="hp-category-item">
-                    <i data-lucide="file-check" class="hp-category-icon"></i>
-                    <span>Mock Driving Tests</span>
-                </a>
-
-                <!-- Cat 5 -->
-                <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I%20need%20Refresher%20or%20Motorway%20Lessons" target="_blank" class="hp-category-item">
-                    <i data-lucide="shield-check" class="hp-category-icon"></i>
-                    <span>Refresher & Motorway</span>
-                </a>
-
-                <!-- Cat 6 -->
-                <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I%20need%20Theory%20Test%20Support" target="_blank" class="hp-category-item">
-                    <i data-lucide="book-open" class="hp-category-icon"></i>
-                    <span>Theory Test Support</span>
+            <div class="free-matching-banner">
+                <div class="free-matching-badge">
+                    <span style="font-size:1.4rem; font-weight:800; color:var(--hp-blue);">FREE</span>
+                    <span style="font-size:0.85rem; font-weight:700; color:var(--hp-ink); text-transform:uppercase;">INSTRUCTOR MATCHING</span>
+                </div>
+                <div class="free-matching-text">
+                    <h3 style="margin-bottom:4px; font-size:1.15rem;">No Matching Fee • No Hidden Matching Charges</h3>
+                    <p style="margin:0; color:var(--hp-graphite); font-size:0.95rem;">
+                        <strong>Instructor matching is 100% free.</strong> Driving lesson prices are set directly by individual instructors. We make finding an available local instructor simple.
+                    </p>
+                </div>
+                <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I'd%20like%20help%20finding%20a%20driving%20instructor." target="_blank" class="btn-hp-black" style="white-space:nowrap; font-size:13px;">
+                    GET MATCHED NOW
                 </a>
             </div>
+        </div>
+    </section>
 
-            <!-- OUR MOST BOOKED DRIVING PACKAGES GRID -->
-            <div id="musthaves" style="margin-top:64px;">
-                <h2>Our Most Booked Driving Packages</h2>
-                <div class="hp-musthaves-grid">
-                    <!-- Package 1 -->
-                    <div class="hp-musthave-card">
-                        <img src="images/course_manual.jpg" alt="Beginner Manual Block 10 Hours">
-                        <div class="hp-musthave-body">
-                            <h3>Beginner Manual Block - 10 Hours</h3>
-                            <p>Clutch control, junctions, roundabouts & first test route intro. Perfect for complete beginners. Includes home pickup in Glasgow.</p>
-                            <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I%20want%20to%20Enquire%20Price%20for%20Beginner%20Manual%20Block%20in%20[My%20Postcode]" target="_blank" class="btn-hp-blue" style="width:100%;">Enquire Price on WhatsApp</a>
-                        </div>
+    <!-- 3-STEP HOW IT WORKS SECTION -->
+    <section id="howitworks" class="section-padding" style="background:#ffffff;">
+        <div class="container">
+            <div style="text-align:center; max-width:700px; margin:0 auto 48px auto;">
+                <span class="usp-badge"><i data-lucide="compass"></i> Simple 3-Step Process</span>
+                <h2 style="margin-top:8px;">HOW IT WORKS</h2>
+                <p style="color:var(--hp-graphite);">We take the stress out of calling multiple driving schools. We check available instructors for you.</p>
+            </div>
+
+            <div class="how-grid">
+                <!-- Step 01 -->
+                <div class="how-card">
+                    <div class="how-number">01</div>
+                    <h3>TELL US WHAT YOU NEED</h3>
+                    <p>Send your postcode, Manual or Automatic preference, and lesson availability through WhatsApp or our simple form.</p>
+                </div>
+
+                <!-- Step 02 -->
+                <div class="how-card">
+                    <div class="how-number">02</div>
+                    <h3>WE FIND A SUITABLE MATCH</h3>
+                    <p>We check our network of local DVSA-approved instructors to find someone with open availability in your postcode area.</p>
+                </div>
+
+                <!-- Step 03 -->
+                <div class="how-card">
+                    <div class="how-number">03</div>
+                    <h3>CONNECT & START LESSONS</h3>
+                    <p>We connect you directly with the instructor so you can discuss lesson scheduling, pricing, and start dates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES / WHAT ARE YOU LOOKING FOR? -->
+    <section id="services" class="section-padding" style="background:var(--hp-cloud);">
+        <div class="container">
+            <div style="text-align:center; max-width:700px; margin:0 auto 48px auto;">
+                <h2>WHAT ARE YOU LOOKING FOR?</h2>
+                <p style="color:var(--hp-graphite);">Select your tuition preference to request an instructor match in your Glasgow postcode area.</p>
+            </div>
+
+            <div class="hp-musthaves-grid">
+                <!-- Card 1: Manual -->
+                <div class="hp-musthave-card">
+                    <img src="images/course_manual.jpg" alt="Manual Driving Lessons Glasgow">
+                    <div class="hp-musthave-body">
+                        <h3>MANUAL DRIVING LESSONS</h3>
+                        <p>Find a suitable local manual driving instructor across Glasgow postcodes.</p>
+                        <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I'm%20looking%20for%20a%20manual%20driving%20instructor.%20My%20postcode%20is%20____." target="_blank" class="btn-hp-blue" style="width:100%;">GET MATCHED</a>
                     </div>
+                </div>
 
-                    <!-- Package 2 -->
-                    <div class="hp-musthave-card">
-                        <img src="images/course_automatic.jpg" alt="Automatic City Course">
-                        <div class="hp-musthave-body">
-                            <h3>Automatic City Course</h3>
-                            <p>Stress-free automatic lessons designed for Glasgow city traffic, hill starts & busy junctions.</p>
-                            <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I%20want%20to%20Check%20Automatic%20Availability%20in%20[My%20Postcode]" target="_blank" class="btn-hp-blue" style="width:100%;">Check Automatic Availability</a>
-                        </div>
+                <!-- Card 2: Automatic -->
+                <div class="hp-musthave-card">
+                    <img src="images/course_automatic.jpg" alt="Automatic Driving Lessons Glasgow">
+                    <div class="hp-musthave-body">
+                        <h3>AUTOMATIC DRIVING LESSONS</h3>
+                        <p>Looking for an automatic instructor? We can help connect you with a suitable local instructor.</p>
+                        <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I'm%20looking%20for%20an%20automatic%20driving%20instructor.%20My%20postcode%20is%20____." target="_blank" class="btn-hp-blue" style="width:100%;">GET MATCHED</a>
                     </div>
+                </div>
 
-                    <!-- Package 3 -->
-                    <div class="hp-musthave-card">
-                        <img src="images/course_intensive.jpg" alt="Fast-Track Intensive Course">
-                        <div class="hp-musthave-body">
-                            <h3>Fast-Track Intensive (2-4 Weeks)</h3>
-                            <p>For those who have theory passed. 30-40 hours in 2-4 weeks to get test-ready fast.</p>
-                            <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I%20want%20to%20Check%20Intensive%20Slots%20in%20[My%20Postcode]" target="_blank" class="btn-hp-blue" style="width:100%;">Check Intensive Slots</a>
-                        </div>
+                <!-- Card 3: Intensive -->
+                <div class="hp-musthave-card">
+                    <img src="images/course_intensive.jpg" alt="Intensive Driving Courses Glasgow">
+                    <div class="hp-musthave-body">
+                        <h3>INTENSIVE DRIVING COURSES</h3>
+                        <p>For learners looking to progress quickly, subject to local instructor availability.</p>
+                        <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I'm%20looking%20for%20an%20intensive%20driving%20course.%20My%20postcode%20is%20____." target="_blank" class="btn-hp-blue" style="width:100%;">GET MATCHED</a>
                     </div>
+                </div>
 
-                    <!-- Package 4 -->
-                    <div class="hp-musthave-card">
-                        <img src="images/course_mock.jpg" alt="Pre-Test Mock Assessment">
-                        <div class="hp-musthave-body">
-                            <h3>Pre-Test Mock Assessment - 2 Hours</h3>
-                            <p>Full mock test on real Anniesland & Baillieston routes with marking sheet and feedback.</p>
-                            <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I%20want%20to%20Book%20Mock%20Test%20in%20[My%20Postcode]" target="_blank" class="btn-hp-blue" style="width:100%;">Book Mock Test</a>
-                        </div>
+                <!-- Card 4: Female -->
+                <div class="hp-musthave-card" style="border:2px solid var(--hp-blue);">
+                    <img src="images/course_mock.jpg" alt="Female Driving Instructor Request Glasgow">
+                    <div class="hp-musthave-body">
+                        <span class="badge-mini">High Demand</span>
+                        <h3>FEMALE INSTRUCTOR REQUEST</h3>
+                        <p>If you prefer a female instructor, let us know and we will try to match you, subject to availability.</p>
+                        <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I'd%20prefer%20a%20female%20driving%20instructor.%20My%20postcode%20is%20____." target="_blank" class="btn-whatsapp" style="width:100%;">GET MATCHED</a>
+                    </div>
+                </div>
+
+                <!-- Card 5: Refresher -->
+                <div class="hp-musthave-card">
+                    <img src="images/story_tips.jpg" alt="Refresher Driving Lessons Glasgow">
+                    <div class="hp-musthave-body">
+                        <h3>REFRESHER LESSONS</h3>
+                        <p>For licensed drivers who want to rebuild confidence or improve specific driving skills.</p>
+                        <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I'm%20looking%20for%20refresher%20driving%20lessons." target="_blank" class="btn-hp-blue" style="width:100%;">ASK ON WHATSAPP</a>
+                    </div>
+                </div>
+
+                <!-- Card 6: Motorway -->
+                <div class="hp-musthave-card">
+                    <img src="images/story_pass.jpg" alt="Motorway Driving Lessons Glasgow">
+                    <div class="hp-musthave-body">
+                        <h3>MOTORWAY LESSONS</h3>
+                        <p>Connect with an instructor who offers motorway driving tuition, where available.</p>
+                        <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I'm%20looking%20for%20motorway%20driving%20tuition." target="_blank" class="btn-hp-blue" style="width:100%;">ASK ON WHATSAPP</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- DARK SLAB PROMO BANNER -->
-    <section id="about" class="hp-dark-slab-section">
+    <!-- AUTOMATIC DRIVING FEATURE SECTION -->
+    <section class="section-padding" style="background:#ffffff;">
+        <div class="container">
+            <div class="hp-hero-grid" style="min-height:auto;">
+                <div class="hp-hero-left">
+                    <span class="usp-badge"><i data-lucide="zap"></i> Automatic Specialization</span>
+                    <h2 style="margin-top:12px; margin-bottom:16px;">AUTOMATIC DRIVING LESSONS IN GLASGOW</h2>
+                    <p style="color:var(--hp-graphite); margin-bottom:24px;">
+                        Looking for an automatic driving instructor? Automatic lessons eliminate clutch control stress, making driving easier in Glasgow city traffic. Tell us your postcode and availability and we'll help you find a suitable local instructor.
+                    </p>
+                    <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I'm%20looking%20for%20an%20automatic%20driving%20instructor.%20My%20postcode%20is%20____." target="_blank" class="btn-whatsapp" style="font-size:14px; padding:14px 24px;">
+                        <i data-lucide="message-circle"></i> FIND AN AUTOMATIC INSTRUCTOR
+                    </a>
+                </div>
+                <div class="hp-hero-right" style="min-height:auto;">
+                    <img src="images/course_automatic.jpg" alt="Automatic Instructor Matching Glasgow" style="width:100%; border-radius:16px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEMALE INSTRUCTOR FEATURE SECTION -->
+    <section class="section-padding" style="background:var(--hp-cloud);">
+        <div class="container">
+            <div class="hp-hero-grid" style="min-height:auto;">
+                <div class="hp-hero-right" style="min-height:auto;">
+                    <img src="images/course_manual.jpg" alt="Female Driving Instructor Preference Glasgow" style="width:100%; border-radius:16px;">
+                </div>
+                <div class="hp-hero-left">
+                    <span class="usp-badge"><i data-lucide="user-check"></i> Comfort Preference</span>
+                    <h2 style="margin-top:12px; margin-bottom:16px;">PREFER A FEMALE INSTRUCTOR?</h2>
+                    <p style="color:var(--hp-graphite); margin-bottom:24px;">
+                        Your comfort matters. Tell us if you would prefer a female driving instructor and we'll try to find a suitable match in your Glasgow postcode area, subject to instructor availability.
+                    </p>
+                    <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I'd%20prefer%20a%20female%20driving%20instructor.%20My%20postcode%20is%20____." target="_blank" class="btn-whatsapp" style="font-size:14px; padding:14px 24px;">
+                        <i data-lucide="message-circle"></i> REQUEST A FEMALE INSTRUCTOR
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTENSIVE COURSE FEATURE SECTION -->
+    <section class="section-padding" style="background:#ffffff;">
+        <div class="container">
+            <div class="hp-hero-grid" style="min-height:auto;">
+                <div class="hp-hero-left">
+                    <span class="usp-badge"><i data-lucide="flag"></i> Fast-Track Option</span>
+                    <h2 style="margin-top:12px; margin-bottom:16px;">INTENSIVE DRIVING COURSES IN GLASGOW</h2>
+                    <p style="color:var(--hp-graphite); margin-bottom:16px;">
+                        Want to progress faster? We can help connect you with instructors who offer intensive or fast-track driving tuition, subject to instructor availability.
+                    </p>
+                    <ul class="trust-list" style="margin-bottom:24px;">
+                        <li><i data-lucide="check" style="color:var(--hp-blue);"></i> Accelerated learning schedules</li>
+                        <li><i data-lucide="check" style="color:var(--hp-blue);"></i> Test route preparation & mock assessments</li>
+                        <li><i data-lucide="check" style="color:var(--hp-blue);"></i> Local DVSA-approved instructor matching</li>
+                    </ul>
+                    <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I'm%20looking%20for%20an%20intensive%20driving%20course.%20My%20postcode%20is%20____." target="_blank" class="btn-whatsapp" style="font-size:14px; padding:14px 24px;">
+                        <i data-lucide="message-circle"></i> REQUEST INTENSIVE MATCHING
+                    </a>
+                </div>
+                <div class="hp-hero-right" style="min-height:auto;">
+                    <img src="images/course_intensive.jpg" alt="Intensive Course Matching Glasgow" style="width:100%; border-radius:16px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST SECTION ("WHY USE GLASGOW DRIVE CONNECT?") -->
+    <section class="hp-dark-slab-section">
+        <div class="container">
+            <div style="text-align:center; max-width:700px; margin:0 auto 40px auto;">
+                <h2 style="color:#ffffff;">WHY USE GLASGOW DRIVE CONNECT?</h2>
+                <p style="color:var(--hp-steel);">We simplify your search by matching you with available local instructors.</p>
+            </div>
+
+            <div class="trust-grid">
+                <div class="trust-card">
+                    <i data-lucide="shield-check" class="trust-card-icon"></i>
+                    <h4>DVSA-Approved Instructors</h4>
+                    <p>We connect you with qualified DVSA-approved local driving instructors.</p>
+                </div>
+                <div class="trust-card">
+                    <div class="free-pill">100% FREE</div>
+                    <h4>Free Instructor Matching</h4>
+                    <p>No matching fees or connection charges for learners.</p>
+                </div>
+                <div class="trust-card">
+                    <i data-lucide="car" class="trust-card-icon"></i>
+                    <h4>Manual & Automatic Options</h4>
+                    <p>Specify your preferred transmission type and we check availability.</p>
+                </div>
+                <div class="trust-card">
+                    <i data-lucide="map-pin" class="trust-card-icon"></i>
+                    <h4>Glasgow & Surrounding Areas</h4>
+                    <p>Coverage across Glasgow postcodes, West End, Southside & surrounding towns.</p>
+                </div>
+                <div class="trust-card">
+                    <i data-lucide="user-search" class="trust-card-icon"></i>
+                    <h4>Local Instructor Matching</h4>
+                    <p>Matched based on your postcode and specific schedule availability.</p>
+                </div>
+                <div class="trust-card">
+                    <i data-lucide="message-circle" class="trust-card-icon"></i>
+                    <h4>Simple WhatsApp Enquiry</h4>
+                    <p>No lengthy forms—message us on WhatsApp and get matched fast.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POPULAR DRIVING PACKAGES & PRICING TRANSPARENCY -->
+    <section id="packages" class="section-padding" style="background:#ffffff;">
+        <div class="container">
+            <div style="text-align:center; max-width:700px; margin:0 auto 48px auto;">
+                <h2>POPULAR DRIVING PACKAGES</h2>
+                <p style="color:var(--hp-graphite); margin-bottom:8px;">Lesson prices vary depending on instructor, area and availability (From £35 - £40/hr typical range).</p>
+                <p style="font-size:13px; color:var(--hp-steel);">Note: Individual instructors set their own lesson rates and block booking options.</p>
+            </div>
+
+            <div class="hp-musthaves-grid">
+                <!-- Package 1 -->
+                <div class="hp-musthave-card">
+                    <img src="images/course_manual.jpg" alt="Beginner Manual Lessons">
+                    <div class="hp-musthave-body">
+                        <h3>Beginner Manual Block</h3>
+                        <p>Clutch control, junctions, roundabouts & first test route intro. Perfect for complete beginners. Includes home pickup in Glasgow.</p>
+                        <p style="font-weight:700; color:var(--hp-blue); font-size:0.9rem; margin-bottom:12px;">Lesson prices set by instructor</p>
+                        <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20what%20are%20the%20current%20instructor%20rates%20for%20Manual%20lessons%20in%20____?" target="_blank" class="btn-hp-blue" style="width:100%;">ASK FOR CURRENT PRICES</a>
+                    </div>
+                </div>
+
+                <!-- Package 2 -->
+                <div class="hp-musthave-card">
+                    <img src="images/course_automatic.jpg" alt="Automatic City Course">
+                    <div class="hp-musthave-body">
+                        <h3>Automatic City Course</h3>
+                        <p>Stress-free automatic lessons designed for Glasgow city traffic, hill starts & busy junctions.</p>
+                        <p style="font-weight:700; color:var(--hp-blue); font-size:0.9rem; margin-bottom:12px;">Lesson prices set by instructor</p>
+                        <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20what%20are%20the%20current%20instructor%20rates%20for%20Automatic%20lessons%20in%20____?" target="_blank" class="btn-hp-blue" style="width:100%;">ASK FOR CURRENT PRICES</a>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="hp-musthave-card">
+                    <img src="images/course_intensive.jpg" alt="Fast-Track Intensive">
+                    <div class="hp-musthave-body">
+                        <h3>Fast-Track Intensive</h3>
+                        <p>For learners who have passed their theory test and want to get test-ready quickly, subject to instructor availability.</p>
+                        <p style="font-weight:700; color:var(--hp-blue); font-size:0.9rem; margin-bottom:12px;">Lesson prices set by instructor</p>
+                        <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20what%20are%20the%20current%20rates%20for%20Intensive%20courses%20in%20____?" target="_blank" class="btn-hp-blue" style="width:100%;">ASK FOR CURRENT PRICES</a>
+                    </div>
+                </div>
+
+                <!-- Package 4 -->
+                <div class="hp-musthave-card">
+                    <img src="images/course_mock.jpg" alt="Pre-Test Mock Assessment">
+                    <div class="hp-musthave-body">
+                        <h3>Pre-Test Mock Assessment</h3>
+                        <p>Realistic mock driving test conducted on real Anniesland, Baillieston, or Shieldhall test routes with marking feedback.</p>
+                        <p style="font-weight:700; color:var(--hp-blue); font-size:0.9rem; margin-bottom:12px;">Lesson prices set by instructor</p>
+                        <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I'd%20like%20to%20enquire%20about%20a%20Mock%20Driving%20Test." target="_blank" class="btn-hp-blue" style="width:100%;">ASK FOR CURRENT PRICES</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GLASGOW COVERAGE & TEST CENTRES -->
+    <section id="coverage" class="section-padding" style="background:var(--hp-cloud);">
+        <div class="container">
+            <div style="text-align:center; max-width:750px; margin:0 auto 48px auto;">
+                <h2>DRIVING INSTRUCTORS ACROSS GLASGOW & SURROUNDING AREAS</h2>
+                <p style="color:var(--hp-graphite);">Check instructor availability in your postcode area. We cover all major Glasgow districts and nearby local test routes.</p>
+            </div>
+
+            <div class="coverage-grid">
+                <div class="coverage-card">
+                    <h4><i data-lucide="map-pin" style="color:var(--hp-blue);"></i> Glasgow Areas Covered</h4>
+                    <ul class="coverage-list">
+                        <li>Glasgow West End (G11, G12, Partick, Dowanhill)</li>
+                        <li>Glasgow East End (G31, G32, Dennistoun, Baillieston)</li>
+                        <li>Glasgow Southside (G41, G42, Shawlands, Pollokshields)</li>
+                        <li>Bearsden & Milngavie (G61, G62)</li>
+                        <li>Paisley & Renfrewshire (PA1, PA2)</li>
+                    </ul>
+                </div>
+                <div class="coverage-card">
+                    <h4><i data-lucide="navigation" style="color:var(--hp-blue);"></i> Popular Test Centres</h4>
+                    <p style="font-size:0.9rem; color:var(--hp-graphite); margin-bottom:12px;">Looking for an instructor familiar with your local test route? Tell us your preferred centre:</p>
+                    <ul class="coverage-list">
+                        <li>Anniesland Test Centre</li>
+                        <li>Baillieston Test Centre</li>
+                        <li>Shieldhall Test Centre</li>
+                        <li>Paisley Test Centre</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:32px;">
+                <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I'd%20like%20to%20check%20instructor%20availability%20for%20my%20postcode:%20____." target="_blank" class="btn-whatsapp" style="font-size:15px; padding:14px 28px;">
+                    <i data-lucide="message-circle"></i> CHECK YOUR POSTCODE ON WHATSAPP
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPREHENSIVE FAQ ACCORDION SECTION -->
+    <section id="faq" class="section-padding" style="background:#ffffff;">
+        <div class="container">
+            <div style="text-align:center; max-width:700px; margin:0 auto 48px auto;">
+                <span class="usp-badge"><i data-lucide="help-circle"></i> Clear Answers</span>
+                <h2 style="margin-top:8px;">FREQUENTLY ASKED QUESTIONS</h2>
+                <p style="color:var(--hp-graphite);">Everything you need to know about our free instructor matching service.</p>
+            </div>
+
+            <div class="faq-container">
+                <!-- FAQ 1 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How does Glasgow Drive Connect work?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Glasgow Drive Connect is a free instructor matching and connection service. Tell us your postcode, transmission preference (manual/automatic), and availability on WhatsApp. We check for an available local DVSA-approved instructor and connect you directly.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Is instructor matching free?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, 100% free! We do not charge learners any matching fees or connection charges. Driving lesson prices are set directly by individual instructors.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do you offer manual driving lessons?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. We connect learners with local DVSA-approved manual driving instructors across Glasgow.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do you offer automatic driving lessons?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. Automatic driving is very popular in Glasgow. Tell us your postcode and we'll check automatic instructor availability in your area.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Which areas of Glasgow do you cover?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We aim to cover postcodes across Glasgow including West End, East End, Southside, Bearsden, Milngavie, and Paisley, subject to instructor availability.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can I request a female driving instructor?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. Your comfort matters. You can specify a preference for a female instructor, and we will try to match you based on local availability.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can I request a particular test centre?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. You can specify whether you plan to take your practical driving test at Anniesland, Baillieston, Shieldhall, or Paisley test centres.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 8 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do you offer intensive driving courses?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. We can check for instructors who offer intensive or fast-track driving tuition, subject to instructor schedule availability.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 9 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How quickly can I be matched?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We aim to connect you with an available instructor within 24 hours of receiving your WhatsApp enquiry.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 10 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How much do driving lessons cost?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Lesson rates are set directly by each independent driving instructor. Typically in Glasgow rates range between £35 - £40 per hour. Once connected, your instructor will confirm their exact pricing and block booking discounts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER FINAL CTA -->
+    <section class="hp-dark-slab-section">
         <div class="container">
             <div class="hp-dark-slab-content">
-                <h2>We believe that confidence powers every pass on Glasgow roads.</h2>
-                <p>From test route preparation in Baillieston, Anniesland & Shieldhall to M8 motorway mastery, Glasgow Drive Connect pairs you with local DVSA approved instructors who have immediate lesson availability in your postcode area.</p>
-                <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I%20want%20to%20get%20matched%20with%20an%20instructor%20in%20[My%20Postcode]" target="_blank" class="btn-hp-outline" style="border-color:#ffffff; color:#ffffff; background:transparent;">
-                    GET MATCHED TODAY
+                <h2>READY TO FIND YOUR DRIVING INSTRUCTOR?</h2>
+                <p>Tell us your postcode, Manual/Automatic preference, and availability on WhatsApp. Matching is 100% free.</p>
+                <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I'd%20like%20help%20finding%20a%20driving%20instructor.%20My%20postcode%20is%20____%20and%20I%20need%20____%20lessons." target="_blank" class="btn-whatsapp" style="padding:16px 32px; font-size:16px;">
+                    <i data-lucide="message-circle"></i> WHATSAPP US — GET MATCHED FREE
                 </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- TRUSTED BY LEARNERS ACROSS GLASGOW -->
-    <section id="trusted" class="section-padding" style="background:#ffffff;">
-        <div class="container">
-            <h2>Trusted By Learners Across Glasgow</h2>
-            
-            <div class="hp-news-grid">
-                <!-- Card 1 -->
-                <div class="hp-news-card">
-                    <img src="images/course_manual.jpg" alt="DVSA Approved Driving Instructors Glasgow">
-                    <div class="hp-news-body">
-                        <h3>DVSA Approved Local Instructors</h3>
-                        <p>All paired instructors are fully qualified DVSA approved driving instructors with extensive knowledge of Glasgow test routes.</p>
-                        <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I%20want%20to%20enquire%20about%20DVSA%20instructor%20availability" target="_blank" class="hp-circle-arrow-link">
-                            <span class="hp-circle-icon">&gt;</span> Enquire Instructor Availability
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="hp-news-card">
-                    <img src="images/course_automatic.jpg" alt="Glasgow Postcode Doorstep Pickup">
-                    <div class="hp-news-body">
-                        <h3>Flexible Doorstep Pickup</h3>
-                        <p>Home, work, or college pickup across all Glasgow postcodes (G1 to G81) including West End, East End, Southside, Bearsden & Paisley.</p>
-                        <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I%20want%20to%20check%20postcode%20coverage" target="_blank" class="hp-circle-arrow-link">
-                            <span class="hp-circle-icon">&gt;</span> Check Postcode Coverage
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -227,16 +575,15 @@
     <!-- FOOTER -->
     <footer class="hp-footer">
         <div class="container">
-            <!-- 5-Column Link Grid -->
             <div class="hp-footer-grid">
                 <!-- Col 1 -->
                 <div class="hp-footer-col">
-                    <h4>Driving Courses</h4>
+                    <h4>Services</h4>
                     <ul>
-                        <li><a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I%20need%20Manual%20Driving%20Lessons" target="_blank">Manual Driving Lessons</a></li>
-                        <li><a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I%20need%20Automatic%20Driving%20Lessons" target="_blank">Automatic Driving Lessons</a></li>
-                        <li><a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I%20need%20Intensive%20Courses" target="_blank">Intensive Fast-Track</a></li>
-                        <li><a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I%20need%20Mock%20Driving%20Tests" target="_blank">Mock Driving Tests</a></li>
+                        <li><a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I'm%20looking%20for%20a%20manual%20driving%20instructor." target="_blank">Manual Lessons</a></li>
+                        <li><a href="automatic-driving-lessons-glasgow.html">Automatic Lessons</a></li>
+                        <li><a href="female-driving-instructor-glasgow.html">Female Instructor Request</a></li>
+                        <li><a href="intensive-driving-courses-glasgow.html">Intensive Courses</a></li>
                     </ul>
                 </div>
 
@@ -244,11 +591,11 @@
                 <div class="hp-footer-col">
                     <h4>Glasgow Postcodes</h4>
                     <ul>
-                        <li><a href="#">Glasgow West End (G11, G12)</a></li>
-                        <li><a href="#">Glasgow East End (G31, G32)</a></li>
-                        <li><a href="#">Glasgow Southside (G41, G42)</a></li>
-                        <li><a href="#">Bearsden & Milngavie (G61)</a></li>
-                        <li><a href="#">Paisley & Renfrewshire (PA1)</a></li>
+                        <li><a href="#coverage">Glasgow West End (G11, G12)</a></li>
+                        <li><a href="#coverage">Glasgow East End (G31, G32)</a></li>
+                        <li><a href="#coverage">Glasgow Southside (G41, G42)</a></li>
+                        <li><a href="#coverage">Bearsden & Milngavie (G61)</a></li>
+                        <li><a href="#coverage">Paisley (PA1)</a></li>
                     </ul>
                 </div>
 
@@ -256,121 +603,126 @@
                 <div class="hp-footer-col">
                     <h4>Test Centres</h4>
                     <ul>
-                        <li><a href="#">Anniesland Test Centre</a></li>
-                        <li><a href="#">Baillieston Test Centre</a></li>
-                        <li><a href="#">Shieldhall Test Centre</a></li>
-                        <li><a href="#">Paisley Test Centre</a></li>
+                        <li><a href="#coverage">Anniesland Test Centre</a></li>
+                        <li><a href="#coverage">Baillieston Test Centre</a></li>
+                        <li><a href="#coverage">Shieldhall Test Centre</a></li>
+                        <li><a href="#coverage">Paisley Test Centre</a></li>
                     </ul>
                 </div>
 
                 <!-- Col 4 -->
                 <div class="hp-footer-col">
-                    <h4>Policies & Legal</h4>
+                    <h4>Legal & Policies</h4>
                     <ul>
-                        <li><a href="#privacy" onclick="alert('Privacy Policy: Glasgow Drive Connect respects your personal data. We only use your submitted information to match you with DVSA approved driving instructors in Glasgow.'); return false;">Privacy Policy</a></li>
-                        <li><a href="#terms" onclick="alert('Terms & Conditions: All driving lessons are provided by independent DVSA approved driving instructors matched through Glasgow Drive Connect.'); return false;">Terms & Conditions</a></li>
-                        <li><a href="#cancellation" onclick="alert('Cancellation Policy: Lessons must be cancelled or rescheduled at least 48 hours in advance directly with your instructor.'); return false;">Cancellation Policy</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
                     </ul>
                 </div>
 
                 <!-- Col 5 -->
                 <div class="hp-footer-col">
-                    <h4>DVSA Approved</h4>
-                    <p style="color:var(--hp-steel); font-size:13px; margin-bottom:12px;">
-                        <i data-lucide="shield-check" style="color:var(--hp-blue); vertical-align:middle;"></i> <strong>DVSA Approved Instructors</strong>
-                    </p>
-                    <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I%20need%20an%20instructor%20in%20[My%20Postcode]" target="_blank" class="btn-whatsapp" style="width:100%; font-size:12px;">
+                    <h4>Contact Us</h4>
+                    <p style="color:var(--hp-steel); font-size:13px; margin-bottom:12px;">WhatsApp Matching Service:</p>
+                    <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I'd%20like%20help%20finding%20a%20driving%20instructor." target="_blank" class="btn-whatsapp" style="width:100%; font-size:12px;">
                         <i data-lucide="message-circle" style="width:14px;"></i> 07440 679472
                     </a>
                 </div>
             </div>
 
-            <!-- Footer Bottom Legal Strip -->
             <div class="hp-footer-bottom">
                 <div>
                     Location: 🏴󠁧󠁢󠁳󠁣󠁴󠁿 Glasgow, Scotland | WhatsApp Only: 07440 679472
                 </div>
                 <div>
-                    © 2026 Glasgow Drive Connect. All Rights Reserved. Matched With A DVSA Instructor In 24 Hours.
+                    © 2026 Glasgow Drive Connect. All Rights Reserved. Free Instructor Matching Service.
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- Side Sticky WhatsApp Button -->
-    <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I%20need%20an%20instructor%20in%20[My%20Postcode]" target="_blank" class="side-sticky-touch">
+    <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I'd%20like%20help%20finding%20a%20driving%20instructor." target="_blank" class="side-sticky-touch">
         WhatsApp Us
     </a>
 
     <!-- Mobile Quick Bottom Bar -->
     <div class="mobile-bottom-bar">
-        <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I%20need%20an%20instructor%20in%20[My%20Postcode]" target="_blank" class="btn-whatsapp" style="width:100%;">
-            <i data-lucide="message-circle" style="width:14px;"></i> WHATSAPP 07440 679472 NOW
+        <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I'd%20like%20help%20finding%20a%20driving%20instructor." target="_blank" class="btn-whatsapp" style="width:100%;">
+            <i data-lucide="message-circle" style="width:16px;"></i> WHATSAPP — GET MATCHED FREE
         </a>
     </div>
 
-    <!-- Booking Modal (Fixed & Expanded Fields) -->
+    <!-- Booking Modal (Secondary Option) -->
     <div class="birch-modal-overlay" id="bookingModal">
         <div class="birch-modal-box">
             <button class="birch-modal-close" onclick="closeModal()">&times;</button>
-            <h3 style="color:var(--hp-ink); margin-bottom:8px; font-size:1.3rem;">Find Your Driving Instructor</h3>
-            <p style="color:var(--hp-graphite); font-size:0.85rem; margin-bottom:14px;">Fill out your details to get matched with a DVSA instructor in Glasgow!</p>
+            
+            <div id="modalFormView">
+                <h3 style="color:var(--hp-ink); margin-bottom:6px; font-size:1.3rem;">Find Your Driving Instructor</h3>
+                <p style="color:var(--hp-graphite); font-size:0.85rem; margin-bottom:14px;">Fill out your details for a free local instructor match in Glasgow.</p>
 
-            <form onsubmit="submitForm(event)">
-                <!-- 1. Full Name -->
-                <div style="margin-bottom:10px;">
-                    <label style="display:block; font-weight:600; font-size:0.8rem; margin-bottom:4px;">Full Name *</label>
-                    <input type="text" id="custName" required placeholder="e.g. John Smith" style="width:100%; padding:8px 10px; border:1px solid var(--hp-fog); border-radius:4px;">
-                </div>
+                <form onsubmit="submitForm(event)">
+                    <div style="margin-bottom:10px;">
+                        <label style="display:block; font-weight:600; font-size:0.8rem; margin-bottom:4px;">Full Name *</label>
+                        <input type="text" id="custName" required placeholder="e.g. John Smith" style="width:100%; padding:8px 10px; border:1px solid var(--hp-fog); border-radius:4px;">
+                    </div>
 
-                <!-- 2. Glasgow Postcode -->
-                <div style="margin-bottom:10px;">
-                    <label style="display:block; font-weight:600; font-size:0.8rem; margin-bottom:4px;">Glasgow Postcode *</label>
-                    <input type="text" id="custPostcode" required placeholder="e.g. G12 8QQ" style="width:100%; padding:8px 10px; border:1px solid var(--hp-fog); border-radius:4px;">
-                </div>
+                    <div style="margin-bottom:10px;">
+                        <label style="display:block; font-weight:600; font-size:0.8rem; margin-bottom:4px;">Glasgow Postcode *</label>
+                        <input type="text" id="custPostcode" required placeholder="e.g. G12 8QQ" style="width:100%; padding:8px 10px; border:1px solid var(--hp-fog); border-radius:4px;">
+                    </div>
 
-                <!-- 3. Phone Number -->
-                <div style="margin-bottom:10px;">
-                    <label style="display:block; font-weight:600; font-size:0.8rem; margin-bottom:4px;">Phone Number *</label>
-                    <input type="tel" id="custPhone" required placeholder="e.g. 07700 900123" style="width:100%; padding:8px 10px; border:1px solid var(--hp-fog); border-radius:4px;">
-                </div>
+                    <div style="margin-bottom:10px;">
+                        <label style="display:block; font-weight:600; font-size:0.8rem; margin-bottom:4px;">Phone / WhatsApp *</label>
+                        <input type="tel" id="custPhone" required placeholder="e.g. 07700 900123" style="width:100%; padding:8px 10px; border:1px solid var(--hp-fog); border-radius:4px;">
+                    </div>
 
-                <!-- 4. Transmission -->
-                <div style="margin-bottom:10px;">
-                    <label style="display:block; font-weight:600; font-size:0.8rem; margin-bottom:4px;">Transmission *</label>
-                    <select id="custTransmission" style="width:100%; padding:8px 10px; border:1px solid var(--hp-fog); border-radius:4px;">
-                        <option value="Manual">Manual</option>
-                        <option value="Automatic">Automatic</option>
-                    </select>
-                </div>
+                    <div style="margin-bottom:10px;">
+                        <label style="display:block; font-weight:600; font-size:0.8rem; margin-bottom:4px;">Transmission *</label>
+                        <select id="custTransmission" style="width:100%; padding:8px 10px; border:1px solid var(--hp-fog); border-radius:4px;">
+                            <option value="Manual">Manual</option>
+                            <option value="Automatic">Automatic</option>
+                            <option value="Female Instructor Preference">Female Instructor Request</option>
+                        </select>
+                    </div>
 
-                <!-- 5. Preferred Test Centre -->
-                <div style="margin-bottom:10px;">
-                    <label style="display:block; font-weight:600; font-size:0.8rem; margin-bottom:4px;">Test Centre</label>
-                    <select id="custTestCentre" style="width:100%; padding:8px 10px; border:1px solid var(--hp-fog); border-radius:4px;">
-                        <option value="Anniesland Test Centre">Anniesland Test Centre</option>
-                        <option value="Baillieston Test Centre">Baillieston Test Centre</option>
-                        <option value="Shieldhall Test Centre">Shieldhall Test Centre</option>
-                        <option value="Paisley Test Centre">Paisley Test Centre</option>
-                        <option value="Not Booked Yet">Not Booked Yet</option>
-                    </select>
-                </div>
+                    <div style="margin-bottom:10px;">
+                        <label style="display:block; font-weight:600; font-size:0.8rem; margin-bottom:4px;">Preferred Test Centre</label>
+                        <select id="custTestCentre" style="width:100%; padding:8px 10px; border:1px solid var(--hp-fog); border-radius:4px;">
+                            <option value="Anniesland Test Centre">Anniesland Test Centre</option>
+                            <option value="Baillieston Test Centre">Baillieston Test Centre</option>
+                            <option value="Shieldhall Test Centre">Shieldhall Test Centre</option>
+                            <option value="Paisley Test Centre">Paisley Test Centre</option>
+                            <option value="Not Sure / Not Booked">Not Sure / Not Booked</option>
+                        </select>
+                    </div>
 
-                <!-- 6. Availability -->
-                <div style="margin-bottom:14px;">
-                    <label style="display:block; font-weight:600; font-size:0.8rem; margin-bottom:4px;">Availability</label>
-                    <select id="custAvailability" style="width:100%; padding:8px 10px; border:1px solid var(--hp-fog); border-radius:4px;">
-                        <option value="Flexible / ASAP">Flexible / ASAP</option>
-                        <option value="Weekdays (Mornings)">Weekdays (Mornings)</option>
-                        <option value="Weekdays (Evenings)">Weekdays (Evenings)</option>
-                        <option value="Weekends">Weekends</option>
-                    </select>
-                </div>
+                    <div style="margin-bottom:14px;">
+                        <label style="display:block; font-weight:600; font-size:0.8rem; margin-bottom:4px;">Availability</label>
+                        <select id="custAvailability" style="width:100%; padding:8px 10px; border:1px solid var(--hp-fog); border-radius:4px;">
+                            <option value="Flexible / ASAP">Flexible / ASAP</option>
+                            <option value="Weekdays (Mornings)">Weekdays (Mornings)</option>
+                            <option value="Weekdays (Evenings)">Weekdays (Evenings)</option>
+                            <option value="Weekends">Weekends</option>
+                        </select>
+                    </div>
 
-                <button type="submit" class="btn-whatsapp" style="width:100%; font-size:13px;">
-                    MATCH ME ON WHATSAPP
-                </button>
-            </form>
+                    <button type="submit" class="btn-whatsapp" style="width:100%; font-size:13px;">
+                        SUBMIT MATCH ENQUIRY
+                    </button>
+                </form>
+            </div>
+
+            <div id="modalThankYouView" style="display:none; text-align:center; padding:20px 10px;">
+                <i data-lucide="check-circle" style="width:48px; height:48px; color:var(--whatsapp-green); margin-bottom:12px;"></i>
+                <h3 style="margin-bottom:8px;">Thank You!</h3>
+                <p style="color:var(--hp-graphite); font-size:0.95rem; margin-bottom:20px;">We have received your enquiry and will check local instructor availability for your postcode area as soon as possible.</p>
+                
+                <p style="font-weight:600; font-size:0.9rem; margin-bottom:8px;">Want a faster response?</p>
+                <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I%20just%20submitted%20an%20instructor%20match%20enquiry!" target="_blank" class="btn-whatsapp" style="width:100%;">
+                    <i data-lucide="message-circle"></i> MESSAGE US DIRECTLY ON WHATSAPP
+                </a>
+            </div>
         </div>
     </div>
 

@@ -803,3 +803,288 @@ p {
     display: none !important;
   }
 }
+
+/* USP Pill Badges & Hero Tags */
+.usp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(2, 74, 216, 0.08);
+  color: var(--hp-blue);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--hp-cloud);
+  border: 1px solid var(--hp-fog);
+  color: var(--hp-ink);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+.badge-mini {
+  display: inline-block;
+  background: var(--hp-blue);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+/* FREE INSTRUCTOR MATCHING PROMINENT USP BANNER */
+.free-matching-banner {
+  background: #ffffff;
+  border: 2px solid var(--hp-blue);
+  border-radius: 16px;
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  box-shadow: 0 8px 24px rgba(2, 74, 216, 0.12);
+}
+
+.free-matching-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(2, 74, 216, 0.06);
+  padding: 14px 20px;
+  border-radius: 12px;
+  min-width: 140px;
+  text-align: center;
+}
+
+.free-matching-text {
+  flex: 1;
+}
+
+@media (max-width: 850px) {
+  .free-matching-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  .free-matching-badge {
+    width: 100%;
+  }
+}
+
+/* 3-STEP HOW IT WORKS SECTION */
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+@media (max-width: 900px) {
+  .how-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.how-card {
+  background: #ffffff;
+  border: 1px solid var(--hp-fog);
+  border-radius: 16px;
+  padding: 32px 24px;
+  position: relative;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease;
+}
+
+.how-card:hover {
+  transform: translateY(-4px);
+}
+
+.how-number {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--hp-blue);
+  margin-bottom: 12px;
+  opacity: 0.85;
+}
+
+.how-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: var(--hp-ink);
+}
+
+.how-card p {
+  font-size: 0.95rem;
+  color: var(--hp-graphite);
+  line-height: 1.5;
+}
+
+/* TRUST SECTION GRID */
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.trust-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 24px;
+  color: #ffffff;
+}
+
+.trust-card-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--hp-blue);
+  margin-bottom: 12px;
+}
+
+.free-pill {
+  display: inline-block;
+  background: var(--whatsapp-green);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.trust-card h4 {
+  color: #ffffff;
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.trust-card p {
+  color: var(--hp-steel);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* COVERAGE GRID */
+.coverage-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .coverage-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.coverage-card {
+  background: #ffffff;
+  border: 1px solid var(--hp-fog);
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.coverage-card h4 {
+  font-size: 1.15rem;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.coverage-list {
+  list-style: none;
+  padding: 0;
+}
+
+.coverage-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--hp-cloud);
+  font-size: 0.95rem;
+  color: var(--hp-charcoal);
+}
+
+/* FAQ ACCORDION ENGINE */
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background: #ffffff;
+  border: 1px solid var(--hp-fog);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.faq-question {
+  width: 100%;
+  padding: 20px 24px;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--hp-ink);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.faq-question:hover {
+  background: var(--hp-cloud);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 24px;
+  background: #ffffff;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px;
+  padding: 0 24px 20px 24px;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-icon {
+  transition: transform 0.3s ease;
+  color: var(--hp-blue);
+  flex-shrink: 0;
+}
