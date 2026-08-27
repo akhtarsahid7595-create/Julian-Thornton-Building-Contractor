@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------
- * GLASGOW DRIVE CONNECT - REAL TELEGRAM LEAD NOTIFICATION ENGINE
+ * GLASGOW DRIVE CONNECT - ANTI-FRAUD LEAD TRACKING ENGINE
  * ------------------------------------------------------------- */
 
 const TELEGRAM_BOT_TOKEN = '8859361744:AAFApSnYCI1ltxeS5fUzCaKFfaoBC2Ps8AI';
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Mobile Menu Toggle Handler
     initMobileMenu();
 
-    // 2. Attach Instant Telegram Lead Tracking to All WhatsApp Links
+    // 2. Attach Anti-Fraud Lead Form Trigger to All WhatsApp Links
     initWhatsAppClickTracking();
 
     // 3. FAQ Accordion Handler
@@ -77,21 +77,21 @@ function closeModal() {
     if (modal) modal.classList.remove('active');
 }
 
-/* Bulletproof Instant Telegram Push Alert Engine */
+/* Bulletproof Instant Telegram Anti-Fraud Push Alert Engine */
 function sendTelegramLeadAlert(leadData) {
     const timeStr = new Date().toLocaleString('en-GB', { timeZone: 'Europe/London' });
     const currentDomain = window.location.hostname || 'www.glasgowdriveconnect.co.uk';
     
-    let textMessage = `🚗 *GLASGOW DRIVE CONNECT - NEW LEAD!*\n\n`;
+    let textMessage = `🚨 *GLASGOW DRIVE CONNECT - VERIFIED LEAD LOG!*\n\n`;
     textMessage += `👤 *Name:* ${leadData.name || 'Website Visitor'}\n`;
-    textMessage += `📞 *Phone/Postcode:* ${leadData.phone || 'Direct WhatsApp Tap'}\n`;
-    textMessage += `📚 *Course:* ${leadData.service || 'General Enquiry'}\n`;
-    textMessage += `⏰ *Time:* ${timeStr} (UK Time)\n`;
-    textMessage += `🌐 *Source:* ${currentDomain}`;
+    textMessage += `📍 *Postcode:* ${leadData.postcode || 'Not Provided'}\n`;
+    textMessage += `📞 *Phone/WhatsApp:* ${leadData.phone || 'Direct Tap'}\n`;
+    textMessage += `⚙️ *Preference:* ${leadData.service || 'General Matching'}\n`;
+    textMessage += `⏰ *Timestamp:* ${timeStr} (UK Time)\n`;
+    textMessage += `🌐 *Source Domain:* ${currentDomain}`;
 
     const telegramApiUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
     
-    // Bulletproof fetch with keepalive: true (Guarantees delivery on mobile tab switch/navigation)
     try {
         fetch(telegramApiUrl, {
             method: 'POST',
@@ -108,47 +108,68 @@ function sendTelegramLeadAlert(leadData) {
     }
 }
 
+/* Intercept WhatsApp CTA Clicks to trigger Lead Form */
 function initWhatsAppClickTracking() {
     document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]').forEach(button => {
-        button.addEventListener('click', () => {
-            const buttonText = button.innerText.replace(/[\n\r]+/g, ' ').trim();
-            sendTelegramLeadAlert({
-                name: 'Direct WhatsApp Visitor',
-                phone: 'Clicked WhatsApp Button',
-                service: buttonText || 'WhatsApp CTA Click'
-            });
+        button.addEventListener('click', (e) => {
+            // If button is inside modal or is the direct opening button, allow direct navigation
+            if (button.closest('#bookingModal') || button.classList.contains('allow-direct-wa')) {
+                return;
+            }
+
+            e.preventDefault();
+
+            // Auto-select transmission in form based on button text/context
+            const text = button.innerText.toLowerCase();
+            const transSelect = document.getElementById('custTransmission');
+            if (transSelect) {
+                if (text.includes('automatic')) transSelect.value = 'Automatic';
+                else if (text.includes('female')) transSelect.value = 'Female Instructor Preference';
+                else if (text.includes('intensive')) transSelect.value = 'Intensive Course';
+                else if (text.includes('manual')) transSelect.value = 'Manual';
+            }
+
+            openModal();
         });
     });
 }
 
+/* Lead Form Submission Handler */
 function submitForm(event) {
     event.preventDefault();
-    const name = document.getElementById('custName') ? document.getElementById('custName').value : '';
-    const postcode = document.getElementById('custPostcode') ? document.getElementById('custPostcode').value : '';
-    const phone = document.getElementById('custPhone') ? document.getElementById('custPhone').value : '';
+    const name = document.getElementById('custName') ? document.getElementById('custName').value.trim() : '';
+    const postcode = document.getElementById('custPostcode') ? document.getElementById('custPostcode').value.trim() : '';
+    const phone = document.getElementById('custPhone') ? document.getElementById('custPhone').value.trim() : '';
     const transmission = document.getElementById('custTransmission') ? document.getElementById('custTransmission').value : 'Manual';
-    const testCentre = document.getElementById('custTestCentre') ? document.getElementById('custTestCentre').value : 'Anniesland Test Centre';
     const availability = document.getElementById('custAvailability') ? document.getElementById('custAvailability').value : 'ASAP';
 
-    const fullServiceDesc = `${transmission} Lessons | ${testCentre} | ${availability}`;
+    const fullServiceDesc = `${transmission} Lessons | Availability: ${availability}`;
 
-    // Send Real Instant Telegram Push Notification to your phone
+    // Send High-Priority Anti-Fraud Lead Proof to Telegram
     sendTelegramLeadAlert({
-        name: `${name} (Postcode: ${postcode})`,
+        name: name,
+        postcode: postcode,
         phone: phone,
         service: fullServiceDesc
     });
 
-    // Show Thank You confirmation view inside modal
+    const message = `Hi Glasgow Drive Connect, I'd like help finding a driving instructor.\n\nName: ${name}\nPostcode: ${postcode}\nPhone: ${phone}\nTransmission: ${transmission}\nAvailability: ${availability}`;
+    const waUrl = `https://wa.me/447440679472?text=${encodeURIComponent(message)}`;
+
+    // Set modal direct link
+    const directBtn = document.getElementById('modalDirectWaBtn');
+    if (directBtn) {
+        directBtn.href = waUrl;
+    }
+
+    // Switch view to Thank You confirmation
     const formView = document.getElementById('modalFormView');
     const thankView = document.getElementById('modalThankYouView');
     if (formView) formView.style.display = 'none';
     if (thankView) thankView.style.display = 'block';
 
-    const message = `Hi Glasgow Drive Connect, I'd like help finding a driving instructor.\n\nMy Postcode: ${postcode}\nTransmission: ${transmission}\nAvailability: ${availability}\nName: ${name}\nPhone: ${phone}\nTest Centre: ${testCentre}`;
-
-    // Delay WhatsApp redirect slightly so thank-you message is seen
+    // Redirect to WhatsApp after 800ms
     setTimeout(() => {
-        window.open(`https://wa.me/447440679472?text=${encodeURIComponent(message)}`, '_blank');
-    }, 1500);
+        window.open(waUrl, '_blank');
+    }, 800);
 }

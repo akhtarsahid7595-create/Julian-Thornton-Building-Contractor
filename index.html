@@ -652,54 +652,47 @@
         </a>
     </div>
 
-    <!-- Booking Modal (Secondary Option) -->
+    <!-- Booking Modal (Lead Capture & Anti-Fraud Verification) -->
     <div class="birch-modal-overlay" id="bookingModal">
         <div class="birch-modal-box">
             <button class="birch-modal-close" onclick="closeModal()">&times;</button>
             
             <div id="modalFormView">
-                <h3 style="color:var(--hp-ink); margin-bottom:6px; font-size:1.3rem;">Find Your Driving Instructor</h3>
-                <p style="color:var(--hp-graphite); font-size:0.85rem; margin-bottom:14px;">Fill out your details for a free local instructor match in Glasgow.</p>
+                <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+                    <span class="usp-badge" style="font-size:0.75rem;"><i data-lucide="shield-check"></i> Free Instructor Match Request</span>
+                </div>
+                <h3 style="color:var(--hp-ink); margin-bottom:4px; font-size:1.25rem;">Find Your Local Instructor</h3>
+                <p style="color:var(--hp-graphite); font-size:0.85rem; margin-bottom:16px;">Quickly enter your details to check instructor availability and connect on WhatsApp.</p>
 
                 <form onsubmit="submitForm(event)">
-                    <div style="margin-bottom:10px;">
-                        <label style="display:block; font-weight:600; font-size:0.8rem; margin-bottom:4px;">Full Name *</label>
-                        <input type="text" id="custName" required placeholder="e.g. John Smith" style="width:100%; padding:8px 10px; border:1px solid var(--hp-fog); border-radius:4px;">
+                    <div style="margin-bottom:12px;">
+                        <label style="display:block; font-weight:700; font-size:0.8rem; margin-bottom:4px; color:var(--hp-ink);">Full Name *</label>
+                        <input type="text" id="custName" required placeholder="e.g. John Smith" style="width:100%; padding:10px 12px; border:1px solid var(--hp-fog); border-radius:6px; font-size:16px;">
                     </div>
 
-                    <div style="margin-bottom:10px;">
-                        <label style="display:block; font-weight:600; font-size:0.8rem; margin-bottom:4px;">Glasgow Postcode *</label>
-                        <input type="text" id="custPostcode" required placeholder="e.g. G12 8QQ" style="width:100%; padding:8px 10px; border:1px solid var(--hp-fog); border-radius:4px;">
+                    <div style="margin-bottom:12px;">
+                        <label style="display:block; font-weight:700; font-size:0.8rem; margin-bottom:4px; color:var(--hp-ink);">Glasgow Postcode *</label>
+                        <input type="text" id="custPostcode" required placeholder="e.g. G12 8QQ" style="width:100%; padding:10px 12px; border:1px solid var(--hp-fog); border-radius:6px; font-size:16px;">
                     </div>
 
-                    <div style="margin-bottom:10px;">
-                        <label style="display:block; font-weight:600; font-size:0.8rem; margin-bottom:4px;">Phone / WhatsApp *</label>
-                        <input type="tel" id="custPhone" required placeholder="e.g. 07700 900123" style="width:100%; padding:8px 10px; border:1px solid var(--hp-fog); border-radius:4px;">
+                    <div style="margin-bottom:12px;">
+                        <label style="display:block; font-weight:700; font-size:0.8rem; margin-bottom:4px; color:var(--hp-ink);">Phone / WhatsApp Number *</label>
+                        <input type="tel" id="custPhone" required placeholder="e.g. 07700 900123" style="width:100%; padding:10px 12px; border:1px solid var(--hp-fog); border-radius:6px; font-size:16px;">
                     </div>
 
-                    <div style="margin-bottom:10px;">
-                        <label style="display:block; font-weight:600; font-size:0.8rem; margin-bottom:4px;">Transmission *</label>
-                        <select id="custTransmission" style="width:100%; padding:8px 10px; border:1px solid var(--hp-fog); border-radius:4px;">
-                            <option value="Manual">Manual</option>
-                            <option value="Automatic">Automatic</option>
+                    <div style="margin-bottom:12px;">
+                        <label style="display:block; font-weight:700; font-size:0.8rem; margin-bottom:4px; color:var(--hp-ink);">Lesson Preference *</label>
+                        <select id="custTransmission" style="width:100%; padding:10px 12px; border:1px solid var(--hp-fog); border-radius:6px; font-size:16px;">
+                            <option value="Manual">Manual Driving Lessons</option>
+                            <option value="Automatic">Automatic Driving Lessons</option>
                             <option value="Female Instructor Preference">Female Instructor Request</option>
+                            <option value="Intensive Course">Intensive Driving Course</option>
                         </select>
                     </div>
 
-                    <div style="margin-bottom:10px;">
-                        <label style="display:block; font-weight:600; font-size:0.8rem; margin-bottom:4px;">Preferred Test Centre</label>
-                        <select id="custTestCentre" style="width:100%; padding:8px 10px; border:1px solid var(--hp-fog); border-radius:4px;">
-                            <option value="Anniesland Test Centre">Anniesland Test Centre</option>
-                            <option value="Baillieston Test Centre">Baillieston Test Centre</option>
-                            <option value="Shieldhall Test Centre">Shieldhall Test Centre</option>
-                            <option value="Paisley Test Centre">Paisley Test Centre</option>
-                            <option value="Not Sure / Not Booked">Not Sure / Not Booked</option>
-                        </select>
-                    </div>
-
-                    <div style="margin-bottom:14px;">
-                        <label style="display:block; font-weight:600; font-size:0.8rem; margin-bottom:4px;">Availability</label>
-                        <select id="custAvailability" style="width:100%; padding:8px 10px; border:1px solid var(--hp-fog); border-radius:4px;">
+                    <div style="margin-bottom:16px;">
+                        <label style="display:block; font-weight:700; font-size:0.8rem; margin-bottom:4px; color:var(--hp-ink);">Lesson Availability</label>
+                        <select id="custAvailability" style="width:100%; padding:10px 12px; border:1px solid var(--hp-fog); border-radius:6px; font-size:16px;">
                             <option value="Flexible / ASAP">Flexible / ASAP</option>
                             <option value="Weekdays (Mornings)">Weekdays (Mornings)</option>
                             <option value="Weekdays (Evenings)">Weekdays (Evenings)</option>
@@ -707,20 +700,19 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="btn-whatsapp" style="width:100%; font-size:13px;">
-                        SUBMIT MATCH ENQUIRY
+                    <button type="submit" class="btn-whatsapp allow-direct-wa" style="width:100%; font-size:14px; padding:14px 20px;">
+                        <i data-lucide="message-circle"></i> CONTINUE TO WHATSAPP ➔
                     </button>
+                    <p style="text-align:center; font-size:0.75rem; color:var(--hp-steel); margin-top:8px; margin-bottom:0;">🔒 100% Free Matching. No obligation.</p>
                 </form>
             </div>
 
-            <div id="modalThankYouView" style="display:none; text-align:center; padding:20px 10px;">
-                <i data-lucide="check-circle" style="width:48px; height:48px; color:var(--whatsapp-green); margin-bottom:12px;"></i>
-                <h3 style="margin-bottom:8px;">Thank You!</h3>
-                <p style="color:var(--hp-graphite); font-size:0.95rem; margin-bottom:20px;">We have received your enquiry and will check local instructor availability for your postcode area as soon as possible.</p>
-                
-                <p style="font-weight:600; font-size:0.9rem; margin-bottom:8px;">Want a faster response?</p>
-                <a href="https://wa.me/447440679472?text=Hi%20Glasgow%20Drive%20Connect,%20I%20just%20submitted%20an%20instructor%20match%20enquiry!" target="_blank" class="btn-whatsapp" style="width:100%;">
-                    <i data-lucide="message-circle"></i> MESSAGE US DIRECTLY ON WHATSAPP
+            <div id="modalThankYouView" style="display:none; text-align:center; padding:24px 12px;">
+                <i data-lucide="check-circle" style="width:52px; height:52px; color:var(--whatsapp-green); margin-bottom:12px;"></i>
+                <h3 style="margin-bottom:6px;">Lead Verified!</h3>
+                <p style="color:var(--hp-graphite); font-size:0.95rem; margin-bottom:20px;">Redirecting you to WhatsApp to connect with available local instructors...</p>
+                <a id="modalDirectWaBtn" href="#" target="_blank" class="btn-whatsapp allow-direct-wa" style="width:100%;">
+                    <i data-lucide="message-circle"></i> OPEN WHATSAPP NOW
                 </a>
             </div>
         </div>
