@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postcode Management Admin Panel | Glasgow Drive Connect</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --hp-blue: #024ad8;
+            --hp-blue-hover: #0e3191;
+            --hp-blue-bright: #296ef9;
+            --hp-ink: #1a1a1a;
+            --hp-canvas: #ffffff;
+            --hp-cloud: #f7f7f7;
+            --hp-fog: #e8e8e8;
+            --hp-steel: #c2c2c2;
+            --hp-charcoal: #3d3d3d;
+            --hp-graphite: #636363;
+            --success-color: #2e7d32;
+            --error-color: #d32f2f;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--hp-cloud);
+            color: var(--hp-ink);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Login Card */
+        #loginSection {
+            background: var(--hp-canvas);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            border: 1px solid var(--hp-fog);
+            transition: all 0.3s ease;
+        }
+
+        #loginSection h2 {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--hp-blue);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        #loginSection p {
+            color: var(--hp-graphite);
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+            color: var(--hp-charcoal);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--hp-steel);
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-group input:focus {
+            border-color: var(--hp-blue);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 14px 20px;
+            background-color: var(--hp-blue);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            font-family: var(--font-heading);
+        }
+
+        .btn:hover {
+            background-color: var(--hp-blue-hover);
+        }
+
+        .btn-danger {
+            background-color: var(--error-color);
+        }
+
+        .btn-danger:hover {
+            background-color: #c62828;
+        }
+
+        .btn-secondary {
+            background-color: var(--hp-charcoal);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--hp-ink);
+        }
+
+        /* Message Box */
+        .message-box {
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .message-box.error {
+            display: block;
+            background-color: #ffebee;
+            color: var(--error-color);
+            border: 1px solid #ffcdd2;
+        }
+
+        .message-box.success {
+            display: block;
+            background-color: #e8f5e9;
+            color: var(--success-color);
+            border: 1px solid #c8e6c9;
+        }
+
+        /* Main Admin Panel */
+        #adminSection {
+            display: none;
+            background: var(--hp-canvas);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            width: 92%;
+            max-width: 900px;
+            padding: 40px;
+            border: 1px solid var(--hp-fog);
+            margin: 40px 0;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--hp-cloud);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .admin-header h1 {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--hp-ink);
+        }
+
+        .admin-header h1 span {
+            color: var(--hp-blue);
+        }
+
+        /* Postcodes Editor Grid */
+        .editor-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .postcode-list-container {
+            border: 1px solid var(--hp-fog);
+            border-radius: 8px;
+            background: var(--hp-cloud);
+            padding: 20px;
+        }
+
+        .postcode-list-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .postcode-list-header h3 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--hp-ink);
+        }
+
+        .postcode-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .postcode-table th, .postcode-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--hp-fog);
+        }
+
+        .postcode-table th {
+            background-color: #f0f4ff;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--hp-blue-deep);
+        }
+
+        .postcode-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .postcode-table input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid var(--hp-steel);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-family: var(--font-body);
+        }
+
+        .postcode-table input:focus {
+            border-color: var(--hp-blue);
+            outline: none;
+        }
+
+        .btn-icon {
+            background: none;
+            border: none;
+            color: var(--hp-graphite);
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-icon:hover {
+            color: var(--error-color);
+            background-color: #ffebee;
+        }
+
+        .add-postcode-form {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px dashed var(--hp-steel);
+        }
+
+        .add-postcode-form input {
+            flex: 1;
+            padding: 10px 14px;
+            border: 1px solid var(--hp-steel);
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .add-postcode-form button {
+            width: auto;
+            padding: 10px 20px;
+        }
+
+        .action-row {
+            display: flex;
+            justify-content: flex-end;
+            gap: 16px;
+            margin-top: 30px;
+        }
+
+        .action-row button {
+            width: 200px;
+        }
+
+        .help-card {
+            background-color: #fdf6e2;
+            border-left: 4px solid #b58900;
+            padding: 16px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: #586e75;
+            margin-bottom: 24px;
+        }
+
+        .help-card strong {
+            color: var(--hp-ink);
+        }
+
+        .logout-btn {
+            background: none;
+            border: 1px solid var(--hp-steel);
+            color: var(--hp-charcoal);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .logout-btn:hover {
+            background: var(--hp-cloud);
+            color: var(--hp-ink);
+        }
+
+        @media (max-width: 768px) {
+            #adminSection {
+                padding: 20px;
+            }
+
+            .admin-header {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .add-postcode-form {
+                flex-direction: column;
+            }
+
+            .action-row {
+                flex-direction: column;
+            }
+
+            .action-row button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Password Verification Section -->
+    <div id="loginSection">
+        <i data-lucide="shield-alert" style="width: 48px; height: 48px; color: var(--hp-blue); margin-bottom: 12px;"></i>
+        <h2>Admin Authentication</h2>
+        <p>Enter the secure password to manage postcodes.</p>
+
+        <div id="loginMsg" class="message-box"></div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="adminPasswordInput">Admin Password</label>
+                <input type="password" id="adminPasswordInput" required placeholder="••••••••">
+            </div>
+            <button type="submit" class="btn" id="loginBtn">LOG IN ➔</button>
+        </form>
+    </div>
+
+    <!-- 2. Main Admin Dashboard Section -->
+    <div id="adminSection">
+        <div class="admin-header">
+            <div>
+                <h1>Glasgow Drive Connect <span>Postcode Editor</span></h1>
+            </div>
+            <button class="logout-btn" id="logoutBtn">LOG OUT</button>
+        </div>
+
+        <div class="help-card">
+            <strong>💡 How it works:</strong> Changing postcodes here will update the list displayed in your website footer and location sections dynamically. Saving changes will commit directly to GitHub, which automatically deploys the live website updates in about 60 seconds.
+        </div>
+
+        <div id="adminMsg" class="message-box"></div>
+
+        <div class="editor-container">
+            <div class="postcode-list-container">
+                <div class="postcode-list-header">
+                    <h3>Active Coverage Areas</h3>
+                    <span style="font-size:0.8rem; color:var(--hp-graphite); font-weight:600;" id="postcodeCount">0 Areas</span>
+                </div>
+
+                <table class="postcode-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 50%;">Display Text (e.g., Area + Code)</th>
+                            <th style="width: 40%;">Link / Page Name</th>
+                            <th style="width: 10%; text-align: center;">Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody id="postcodeRows">
+                        <!-- Rows injected via JS -->
+                    </tbody>
+                </table>
+
+                <!-- Form to Add a New Postcode Row -->
+                <form id="addPostcodeForm" class="add-postcode-form">
+                    <input type="text" id="newText" placeholder="e.g. Bearsden & Milngavie (G61)" required>
+                    <input type="text" id="newUrl" placeholder="e.g. driving-lessons-anniesland.html or #coverage" required>
+                    <button type="submit" class="btn btn-secondary"><i data-lucide="plus" style="width:16px; margin-right:4px;"></i> ADD</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Sticky Save/Cancel Action Row -->
+        <div class="action-row">
+            <button type="button" class="btn btn-secondary" id="resetBtn">Discard Changes</button>
+            <button type="button" class="btn" id="saveBtn">Save Changes ➔</button>
+        </div>
+    </div>
+
+    <script>
+        // Global State
+        let adminPassword = '';
+        let postcodesList = [];
+
+        // DOM elements
+        const loginSection = document.getElementById('loginSection');
+        const adminSection = document.getElementById('adminSection');
+        const loginForm = document.getElementById('loginForm');
+        const loginMsg = document.getElementById('loginMsg');
+        const adminMsg = document.getElementById('adminMsg');
+        const postcodeRows = document.getElementById('postcodeRows');
+        const postcodeCount = document.getElementById('postcodeCount');
+        const addPostcodeForm = document.getElementById('addPostcodeForm');
+        const saveBtn = document.getElementById('saveBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+
+        // Check if user is already authenticated (session cache)
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) {
+                window.lucide.createIcons();
+            }
+            
+            const cachedPass = sessionStorage.getItem('admin_pass');
+            if (cachedPass) {
+                adminPassword = cachedPass;
+                loadAdminPanel();
+            }
+        });
+
+        // 1. Authenticate / Login
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const passInput = document.getElementById('adminPasswordInput');
+            const password = passInput.value;
+
+            setLoading(true, 'loginBtn');
+            loginMsg.className = 'message-box';
+
+            try {
+                // Test the password by fetching the config/postcodes metadata
+                // We'll perform a dummy verification call or try fetching current postcodes
+                const response = await fetch('/postcodes.json');
+                if (!response.ok) throw new Error('Could not load current database to verify connection.');
+                
+                // Save pass in state & session storage
+                adminPassword = password;
+                sessionStorage.setItem('admin_pass', password);
+                
+                loadAdminPanel();
+            } catch (err) {
+                showMsg(loginMsg, 'error', 'Error connecting to database. Please check connection.');
+            } finally {
+                setLoading(false, 'loginBtn', 'LOG IN ➔');
+            }
+        });
+
+        // 2. Load Admin Panel Data
+        async function loadAdminPanel() {
+            loginSection.style.display = 'none';
+            adminSection.style.display = 'block';
+            adminMsg.className = 'message-box';
+
+            try {
+                const response = await fetch('/postcodes.json?t=' + Date.now());
+                if (!response.ok) throw new Error('Failed to load postcodes database.');
+                
+                postcodesList = await response.json();
+                renderPostcodesTable();
+            } catch (err) {
+                showMsg(adminMsg, 'error', err.message);
+            }
+        }
+
+        // Render Table Rows from State
+        function renderPostcodesTable() {
+            postcodeRows.innerHTML = '';
+            
+            if (postcodesList.length === 0) {
+                postcodeRows.innerHTML = `<tr><td colspan="3" style="text-align:center; color:var(--hp-graphite); padding: 24px;">No postcodes configured. Add one below!</td></tr>`;
+                postcodeCount.textContent = '0 Areas';
+                return;
+            }
+
+            postcodesList.forEach((item, index) => {
+                const tr = document.createElement('tr');
+                
+                tr.innerHTML = `
+                    <td>
+                        <input type="text" value="${escapeHtml(item.text)}" onchange="updateItem(${index}, 'text', this.value)">
+                    </td>
+                    <td>
+                        <input type="text" value="${escapeHtml(item.url)}" onchange="updateItem(${index}, 'url', this.value)">
+                    </td>
+                    <td style="text-align: center;">
+                        <button type="button" class="btn-icon" onclick="removeItem(${index})">
+                            <i data-lucide="trash-2" style="width: 18px; height: 18px;"></i>
+                        </button>
+                    </td>
+                `;
+                postcodeRows.appendChild(tr);
+            });
+
+            postcodeCount.textContent = `${postcodesList.length} Area${postcodesList.length === 1 ? '' : 's'}`;
+            if (window.lucide) {
+                window.lucide.createIcons();
+            }
+        }
+
+        // Update Item in State
+        window.updateItem = function(index, field, value) {
+            postcodesList[index][field] = value.trim();
+        };
+
+        // Remove Item from State
+        window.removeItem = function(index) {
+            postcodesList.splice(index, 1);
+            renderPostcodesTable();
+        };
+
+        // Add Item to State
+        addPostcodeForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const textInput = document.getElementById('newText');
+            const urlInput = document.getElementById('newUrl');
+
+            postcodesList.push({
+                text: textInput.value.trim(),
+                url: urlInput.value.trim()
+            });
+
+            textInput.value = '';
+            urlInput.value = '';
+            
+            renderPostcodesTable();
+        });
+
+        // 3. Save Changes back to GitHub via Vercel Function
+        saveBtn.addEventListener('click', async () => {
+            setLoading(true, 'saveBtn');
+            adminMsg.className = 'message-box';
+
+            try {
+                const response = await fetch('/api/save-postcodes', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        password: adminPassword,
+                        postcodes: postcodesList
+                    })
+                });
+
+                const data = await response.json();
+                if (!response.ok) {
+                    throw new Error(data.error || 'Server returned an error.');
+                }
+
+                showMsg(adminMsg, 'success', '🎉 Success! Postcodes saved and pushed to GitHub. Live updates will take about 60 seconds to deploy.');
+                
+                // Briefly scroll up to see success alert
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } catch (err) {
+                showMsg(adminMsg, 'error', 'Failed to save: ' + err.message);
+            } finally {
+                setLoading(false, 'saveBtn', 'Save Changes ➔');
+            }
+        });
+
+        // Discard / Reset Form
+        resetBtn.addEventListener('click', () => {
+            if (confirm('Are you sure you want to discard all unsaved edits?')) {
+                loadAdminPanel();
+            }
+        });
+
+        // Logout
+        logoutBtn.addEventListener('click', () => {
+            sessionStorage.removeItem('admin_pass');
+            adminPassword = '';
+            loginSection.style.display = 'block';
+            adminSection.style.display = 'none';
+            document.getElementById('adminPasswordInput').value = '';
+        });
+
+        // Helpers
+        function setLoading(isLoading, btnId, defaultText = '') {
+            const btn = document.getElementById(btnId);
+            if (isLoading) {
+                btn.disabled = true;
+                btn.innerHTML = `<span class="spinner"></span> Saving...`;
+            } else {
+                btn.disabled = false;
+                btn.innerHTML = defaultText;
+            }
+        }
+
+        function showMsg(el, type, msg) {
+            el.className = `message-box ${type}`;
+            el.textContent = msg;
+        }
+
+        function escapeHtml(text) {
+            return text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+    </script>
+</body>
+</html>

@@ -43,11 +43,11 @@ exports.handler = async function(event, context) {
             };
         }
 
-        const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
-        
         // Fallback fetch import if not available globally (older Node environments)
         const fetchFn = typeof fetch !== 'undefined' ? fetch : require('node-fetch');
-        
+
+        // 1. Send Telegram Alert
+        const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
         const response = await fetchFn(telegramUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -59,11 +59,44 @@ exports.handler = async function(event, context) {
         });
 
         const data = await response.json();
-        if (!response.ok) {
+        let telegramSuccess = response.ok;
+        let telegramErrorMsg = telegramSuccess ? null : (data.description || 'Telegram API error');
+
+        // 2. Send Backup Email Alert (Resend API)
+        const resendApiKey = process.env.RESEND_API_KEY;
+        const emailRecipient = process.env.LEAD_EMAIL_RECIPIENT;
+        const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
+
+        if (resendApiKey && emailRecipient) {
+            try {
+                const htmlContent = text
+                    .replace(/\n/g, '<br>')
+                    .replace(/\*(.*?)\*/g, '<strong>$1</strong>');
+
+                await fetchFn('https://api.resend.com/emails', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${resendApiKey}`
+                    },
+                    body: JSON.stringify({
+                        from: `Glasgow Drive Connect <${fromEmail}>`,
+                        to: [emailRecipient],
+                        subject: 'New Verified Lead - Glasgow Drive Connect',
+                        html: `<div style="font-family: sans-serif; line-height: 1.5; color: #333;">${htmlContent}</div>`
+                    })
+                });
+                console.log('Resend email sent successfully');
+            } catch (emailError) {
+                console.error('Failed to send lead backup email:', emailError);
+            }
+        }
+
+        if (!telegramSuccess) {
             return { 
                 statusCode: response.status, 
                 headers, 
-                body: JSON.stringify({ error: data.description || 'Telegram API error' }) 
+                body: JSON.stringify({ error: telegramErrorMsg }) 
             };
         }
 

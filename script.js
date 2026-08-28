@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 6. Track secondary CTAs and postcode checks
     initSecondaryCtaTracking();
+
+    // 7. Load Dynamic Postcodes
+    loadDynamicPostcodes();
 });
 
 /* Dynamic Booking Modal Injector (for service pages / landing pages) */
@@ -374,4 +377,32 @@ function submitForm(event) {
     setTimeout(() => {
         window.open(waUrl, '_blank');
     }, 800);
+}
+
+/* Load dynamic postcodes from postcodes.json */
+async function loadDynamicPostcodes() {
+    const listContainers = document.querySelectorAll('#dynamic-postcode-list');
+    if (listContainers.length === 0) return;
+
+    try {
+        const response = await fetch(`/postcodes.json?t=${Date.now()}`);
+        if (!response.ok) throw new Error('Failed to fetch postcodes');
+
+        const postcodes = await response.json();
+        if (!Array.isArray(postcodes)) return;
+
+        listContainers.forEach(container => {
+            container.innerHTML = '';
+            postcodes.forEach(item => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = item.url;
+                a.textContent = item.text;
+                li.appendChild(a);
+                container.appendChild(li);
+            });
+        });
+    } catch (err) {
+        console.warn('Error loading dynamic postcodes, falling back to static footer HTML:', err);
+    }
 }
