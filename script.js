@@ -31,11 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* Dynamic Booking Modal Injector (for service pages / landing pages) */
 function injectBookingModalIfNeeded() {
-    if (document.getElementById('bookingModal')) {
-        return; // Already present in index.html
-    }
-
-    const modalHTML = `
+    if (!document.getElementById('bookingModal')) {
+        const modalHTML = `
     <div class="birch-modal-overlay" id="bookingModal">
         <div class="birch-modal-box">
             <button class="birch-modal-close" id="closeModalBtn">&times;</button>
@@ -113,22 +110,35 @@ function injectBookingModalIfNeeded() {
     </div>
     `;
 
-    const div = document.createElement('div');
-    div.innerHTML = modalHTML;
-    document.body.appendChild(div.firstElementChild);
+        const div = document.createElement('div');
+        div.innerHTML = modalHTML;
+        document.body.appendChild(div.firstElementChild);
 
-    // Attach form listener and close listener to injected elements
+        if (window.lucide) {
+            window.lucide.createIcons();
+        }
+    }
+
+    // Attach form listener and close listener
     const form = document.getElementById('leadForm');
     if (form) {
+        form.removeEventListener('submit', submitForm);
         form.addEventListener('submit', submitForm);
     }
     const closeBtn = document.getElementById('closeModalBtn');
     if (closeBtn) {
+        closeBtn.removeEventListener('click', closeModal);
         closeBtn.addEventListener('click', closeModal);
     }
 
-    if (window.lucide) {
-        window.lucide.createIcons();
+    // Attach live input listeners to clear custom validity errors on type
+    const postcodeEl = document.getElementById('custPostcode');
+    if (postcodeEl) {
+        postcodeEl.addEventListener('input', () => postcodeEl.setCustomValidity(''));
+    }
+    const phoneEl = document.getElementById('custPhone');
+    if (phoneEl) {
+        phoneEl.addEventListener('input', () => phoneEl.setCustomValidity(''));
     }
 }
 
@@ -324,8 +334,34 @@ function initWhatsAppClickTracking() {
 function submitForm(event) {
     event.preventDefault();
     const name = document.getElementById('custName') ? document.getElementById('custName').value.trim() : '';
-    const postcode = document.getElementById('custPostcode') ? document.getElementById('custPostcode').value.trim() : '';
-    const phone = document.getElementById('custPhone') ? document.getElementById('custPhone').value.trim() : '';
+    const postcodeEl = document.getElementById('custPostcode');
+    const phoneEl = document.getElementById('custPhone');
+
+    const postcode = postcodeEl ? postcodeEl.value.trim() : '';
+    const phone = phoneEl ? phoneEl.value.trim() : '';
+
+    // Validate UK Postcode
+    if (postcodeEl) {
+        if (!validateUKPostcode(postcode)) {
+            postcodeEl.setCustomValidity('Please enter a valid UK postcode (e.g. G12 8QQ).');
+            postcodeEl.reportValidity();
+            return;
+        } else {
+            postcodeEl.setCustomValidity('');
+        }
+    }
+
+    // Validate UK Phone Number
+    if (phoneEl) {
+        if (!validateUKPhone(phone)) {
+            phoneEl.setCustomValidity('Please enter a valid UK phone number (e.g. 07700 900123).');
+            phoneEl.reportValidity();
+            return;
+        } else {
+            phoneEl.setCustomValidity('');
+        }
+    }
+
     const transmission = document.getElementById('custTransmission') ? document.getElementById('custTransmission').value : 'Manual';
     const availability = document.getElementById('custAvailability') ? document.getElementById('custAvailability').value : 'ASAP';
     const testCentre = document.getElementById('custTestCentre') ? document.getElementById('custTestCentre').value : 'No Preference';
@@ -406,3 +442,17 @@ async function loadDynamicPostcodes() {
         console.warn('Error loading dynamic postcodes, falling back to static footer HTML:', err);
     }
 }
+
+/* Helper validation functions */
+function validateUKPostcode(postcode) {
+    const postcodeRegex = /^[A-Z]{1,2}[0-9][A-Z0-9]?\s?[0-9][A-Z]{2}$/i;
+    return postcodeRegex.test(postcode.trim());
+}
+
+function validateUKPhone(phone) {
+    const cleanPhone = phone.replace(/[\s\-\(\)]/g, '');
+    // Standard UK numbers (mobile or landline) start with 0, +44, or 0044, and have 10 digits following the country code.
+    const phoneRegex = /^(?:\+44|0044|0)[1-9][0-9]{9}$/;
+    return phoneRegex.test(cleanPhone);
+}
+
