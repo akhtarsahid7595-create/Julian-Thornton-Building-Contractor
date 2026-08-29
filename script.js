@@ -143,7 +143,7 @@ function trackGAEvent(eventName, eventParams = {}) {
 }
 
 /* Secure Telegram Notification Push using Serverless Handlers */
-async function sendTelegramAlert(textMessage) {
+async function sendTelegramAlert(textMessage, isLead = false) {
     // Attempt Vercel Function first
     const endpoints = [
         '/api/telegram',
@@ -156,7 +156,7 @@ async function sendTelegramAlert(textMessage) {
             const res = await fetch(url, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ text: textMessage }),
+                body: JSON.stringify({ text: textMessage, isLead }),
                 keepalive: true
             });
             if (res.ok) {
@@ -355,7 +355,7 @@ function submitForm(event) {
     textMessage += `🌐 *Source Domain:* ${currentDomain}`;
 
     // Send Alert to Telegram via Serverless function
-    sendTelegramAlert(textMessage);
+    sendTelegramAlert(textMessage, true);
 
     // Build URL encoded message for WhatsApp redirection
     const message = `Hi Glasgow Drive Connect, I'd like help finding a driving instructor.\n\nName: ${name}\nPostcode: ${postcode}\nPhone: ${phone}\nTransmission: ${transmission}\nAvailability: ${availability}\nTest Centre: ${testCentre}`;

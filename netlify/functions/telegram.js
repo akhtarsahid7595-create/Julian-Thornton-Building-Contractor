@@ -23,7 +23,7 @@ exports.handler = async function(event, context) {
     }
 
     try {
-        const { text } = JSON.parse(event.body);
+        const { text, isLead } = JSON.parse(event.body);
         const botToken = process.env.TELEGRAM_BOT_TOKEN;
         const chatId = process.env.TELEGRAM_CHAT_ID;
 
@@ -67,7 +67,9 @@ exports.handler = async function(event, context) {
         const emailRecipient = process.env.LEAD_EMAIL_RECIPIENT;
         const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
 
-        if (resendApiKey && emailRecipient) {
+        const shouldSendEmail = isLead || (text && text.includes('NEW VERIFIED LEAD'));
+
+        if (shouldSendEmail && resendApiKey && emailRecipient) {
             try {
                 const htmlContent = text
                     .replace(/\n/g, '<br>')
