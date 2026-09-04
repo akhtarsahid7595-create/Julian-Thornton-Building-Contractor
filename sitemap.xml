@@ -2,67 +2,73 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.glasgowdriveconnect.co.uk/</loc>
-    <lastmod>2026-08-28</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.glasgowdriveconnect.co.uk/automatic-driving-lessons-glasgow.html</loc>
-    <lastmod>2026-08-28</lastmod>
+    <loc>https://www.glasgowdriveconnect.co.uk/automatic-driving-lessons-glasgow</loc>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.glasgowdriveconnect.co.uk/female-driving-instructor-glasgow.html</loc>
-    <lastmod>2026-08-28</lastmod>
+    <loc>https://www.glasgowdriveconnect.co.uk/female-driving-instructor-glasgow</loc>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.glasgowdriveconnect.co.uk/intensive-driving-courses-glasgow.html</loc>
-    <lastmod>2026-08-28</lastmod>
+    <loc>https://www.glasgowdriveconnect.co.uk/intensive-driving-courses-glasgow</loc>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.glasgowdriveconnect.co.uk/driving-lessons-anniesland.html</loc>
-    <lastmod>2026-08-28</lastmod>
+    <loc>https://www.glasgowdriveconnect.co.uk/driving-lessons-anniesland</loc>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.glasgowdriveconnect.co.uk/driving-lessons-baillieston.html</loc>
-    <lastmod>2026-08-28</lastmod>
+    <loc>https://www.glasgowdriveconnect.co.uk/driving-lessons-baillieston</loc>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.glasgowdriveconnect.co.uk/driving-lessons-shieldhall.html</loc>
-    <lastmod>2026-08-28</lastmod>
+    <loc>https://www.glasgowdriveconnect.co.uk/driving-lessons-shieldhall</loc>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.glasgowdriveconnect.co.uk/driving-lessons-paisley.html</loc>
-    <lastmod>2026-08-28</lastmod>
+    <loc>https://www.glasgowdriveconnect.co.uk/driving-lessons-paisley</loc>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.glasgowdriveconnect.co.uk/privacy-policy.html</loc>
-    <lastmod>2026-08-28</lastmod>
+    <loc>https://www.glasgowdriveconnect.co.uk/driving-lessons-glasgow-southside</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.glasgowdriveconnect.co.uk/privacy-policy</loc>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.glasgowdriveconnect.co.uk/terms.html</loc>
-    <lastmod>2026-08-28</lastmod>
+    <loc>https://www.glasgowdriveconnect.co.uk/terms</loc>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.glasgowdriveconnect.co.uk/cookie-policy.html</loc>
-    <lastmod>2026-08-28</lastmod>
+    <loc>https://www.glasgowdriveconnect.co.uk/cookie-policy</loc>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

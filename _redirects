@@ -1,0 +1,28 @@
+# Netlify 301 Redirects: Redirect all .html URLs to clean/pretty URLs
+/index.html                                  /                                      301!
+/automatic-driving-lessons-glasgow.html       /automatic-driving-lessons-glasgow     301!
+/female-driving-instructor-glasgow.html       /female-driving-instructor-glasgow     301!
+/intensive-driving-courses-glasgow.html       /intensive-driving-courses-glasgow     301!
+/driving-lessons-anniesland.html              /driving-lessons-anniesland            301!
+/driving-lessons-baillieston.html             /driving-lessons-baillieston           301!
+/driving-lessons-shieldhall.html              /driving-lessons-shieldhall            301!
+/driving-lessons-paisley.html                 /driving-lessons-paisley               301!
+/driving-lessons-glasgow-southside.html       /driving-lessons-glasgow-southside     301!
+/privacy-policy.html                          /privacy-policy                        301!
+/terms.html                                   /terms                                 301!
+/cookie-policy.html                           /cookie-policy                         301!
+/admin.html                                   /admin                                 301!
+
+# Internal Rewrites: Map clean URLs to underlying .html files
+/automatic-driving-lessons-glasgow            /automatic-driving-lessons-glasgow.html        200
+/female-driving-instructor-glasgow            /female-driving-instructor-glasgow.html        200
+/intensive-driving-courses-glasgow            /intensive-driving-courses-glasgow.html        200
+/driving-lessons-anniesland                   /driving-lessons-anniesland.html               200
+/driving-lessons-baillieston                  /driving-lessons-baillieston.html              200
+/driving-lessons-shieldhall                   /driving-lessons-shieldhall.html               200
+/driving-lessons-paisley                      /driving-lessons-paisley.html                  200
+/driving-lessons-glasgow-southside            /driving-lessons-glasgow-southside.html        200
+/privacy-policy                               /privacy-policy.html                           200
+/terms                                        /terms.html                                    200
+/cookie-policy                                /cookie-policy.html                            200
+/admin                                        /admin.html                                    200
